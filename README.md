@@ -2,6 +2,9 @@
 
 A responsive website for Sri Umadevi Tours, specializing in spiritual pilgrimage tours and sacred journeys across India.
 
+🌐 **Live Website**: https://sriumadevitours.com  
+🔗 **GitHub Pages**: https://sriumadevitours.github.io
+
 ## Features
 
 - **Responsive Design**: Mobile-first approach using Tailwind CSS
