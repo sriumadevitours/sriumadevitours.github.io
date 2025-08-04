@@ -12,20 +12,29 @@ A responsive website for Sri Umadevi Tours, specializing in spiritual pilgrimage
 
 ## Tours Offered
 
-### 🏔️ Kailasa Manasarovar Yatra
+### 🏔️ Kailasa Manasarovar Yatra (Road Route)
 - Sacred journey to Mount Kailash and Lake Manasarovar
+- 14 days of spiritual transformation
 - Expert guides and comfortable accommodation
-- Starting from ₹1,85,000 per person
+- Starting from ₹2,35,000 per person
+
+### 🚁 Kailash Helicopter Yatra (Premium)
+- Luxury helicopter journey to Mount Kailash
+- Skip the arduous trek - fly directly to sacred destination
+- 11 days of premium comfort and spiritual experience
+- Starting from ₹2,95,000 per person
 
 ### 🛕 Chardham Yatra
 - Visit all four sacred dhams: Yamunotri, Gangotri, Kedarnath, Badrinath
-- Complete spiritual cleansing journey
-- Starting from ₹45,000 per person
+- Complete spiritual cleansing journey through the Himalayas
+- 12 days of divine experiences
+- Starting from ₹65,000 per person
 
 ### 🏛️ Sacred Temple Tours
-- Ancient temples across India
-- Varanasi, Rameshwaram, and other holy sites
-- Starting from ₹25,000 per person
+- Ancient temples and spiritual sites across India
+- Varanasi, Rameshwaram, and other holy destinations
+- 8 days of temple hopping and spiritual exploration
+- Starting from ₹35,000 per person
 
 ## Technologies Used
 
@@ -37,10 +46,11 @@ A responsive website for Sri Umadevi Tours, specializing in spiritual pilgrimage
 
 ## Contact Information
 
-- **Phone**: +91 98765 43210
+- **Phone**: +91 95816 08979
 - **Email**: info@sriumadevitours.com
-- **Address**: 123 Temple Street, Haridwar, Uttarakhand
+- **Address**: Beside Sri Subramanya Swami Temple, Skandagiri, Padmarao Nagar, Secunderabad
 - **Hours**: Monday-Saturday, 9AM-7PM
+- **WhatsApp Booking**: Instant booking available via WhatsApp
 
 ## Website Structure
 

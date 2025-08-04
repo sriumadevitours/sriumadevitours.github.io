@@ -20,7 +20,7 @@
     </script>
     <style>
         .hero-bg {
-            background: linear-gradient(rgba(30, 64, 175, 0.8), rgba(249, 115, 22, 0.8)), url('/api/placeholder/1200/600');
+            background: linear-gradient(rgba(30, 64, 175, 0.8), rgba(249, 115, 22, 0.8)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -37,6 +37,27 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
         }
     </style>
 </head>
@@ -81,8 +102,8 @@
                 <button class="bg-divine-gold text-spiritual-blue px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors">
                     Explore Sacred Tours
                 </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-spiritual-blue transition-colors">
-                    Watch Journey Videos
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-spiritual-blue transition-colors" onclick="window.open('https://wa.me/919581608979?text=I would like to see videos of your spiritual tours and get more information about your packages.', '_blank')">
+                    WhatsApp Inquiry
                 </button>
             </div>
         </div>
@@ -98,10 +119,10 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-4 gap-6">
                 <!-- Kailasa Manasarovar -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-spiritual-blue to-blue-600" style="background-image: url('/api/placeholder/400/300'); background-size: cover; background-position: center;"></div>
+                    <div class="h-64 bg-gradient-to-br from-spiritual-blue to-blue-600" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">🏔️ Kailasa Manasarovar Yatra</h3>
                         <p class="text-gray-600 mb-6">
@@ -109,11 +130,11 @@
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹1,85,000</span>
+                                <span class="text-2xl">₹2,35,000</span>
                                 <span class="text-sm text-gray-500">/person</span>
                             </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                                View Details
+                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('kailash')">
+                                Book Now
                             </button>
                         </div>
                     </div>
@@ -121,7 +142,7 @@
 
                 <!-- Chardham Yatra -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-sacred-orange to-orange-600" style="background-image: url('/api/placeholder/400/300'); background-size: cover; background-position: center;"></div>
+                    <div class="h-64 bg-gradient-to-br from-sacred-orange to-orange-600" style="background-image: url('https://images.unsplash.com/photo-1582647692171-c6b32c9ef5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">🛕 Chardham Yatra</h3>
                         <p class="text-gray-600 mb-6">
@@ -129,11 +150,11 @@
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹45,000</span>
+                                <span class="text-2xl">₹65,000</span>
                                 <span class="text-sm text-gray-500">/person</span>
                             </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                                View Details
+                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('chardham')">
+                                Book Now
                             </button>
                         </div>
                     </div>
@@ -141,7 +162,7 @@
 
                 <!-- Temple Tours -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('/api/placeholder/400/300'); background-size: cover; background-position: center;"></div>
+                    <div class="h-64 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">🏛️ Sacred Temple Tours</h3>
                         <p class="text-gray-600 mb-6">
@@ -149,11 +170,37 @@
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹25,000</span>
+                                <span class="text-2xl">₹35,000</span>
                                 <span class="text-sm text-gray-500">/person</span>
                             </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                                View Details
+                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('temples')">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Helicopter Kailash -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-divine-gold">
+                    <div class="bg-divine-gold text-spiritual-blue text-center py-2 font-bold text-sm">
+                        🚁 PREMIUM HELICOPTER
+                    </div>
+                    <div class="h-56 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🚁 Kailash Helicopter Yatra</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Luxury helicopter journey to Mount Kailash. Skip the arduous trek - fly directly to the sacred destination in comfort.
+                        </p>
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 11 Days | 🛏️ Premium Hotels | 🍽️ All Meals
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-spiritual-blue font-semibold">
+                                <span class="text-xl">₹2,95,000</span>
+                                <span class="text-xs text-gray-500">/person</span>
+                            </div>
+                            <button class="bg-divine-gold text-spiritual-blue px-4 py-2 rounded-full hover:bg-yellow-400 transition-colors text-sm font-semibold" onclick="openBookingForm('helicopter')">
+                                Book Now
                             </button>
                         </div>
                     </div>
@@ -238,7 +285,7 @@
                             </div>
                             <div>
                                 <div class="font-semibold">Phone</div>
-                                <div class="text-blue-100">+91 98765 43210</div>
+                                <div class="text-blue-100">+91 95816 08979</div>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -261,7 +308,7 @@
                             </div>
                             <div>
                                 <div class="font-semibold">Office</div>
-                                <div class="text-blue-100">123 Temple Street, Haridwar, Uttarakhand</div>
+                                <div class="text-blue-100">Beside Sri Subramanya Swami Temple, Skandagiri, Padmarao Nagar, Secunderabad</div>
                             </div>
                         </div>
                     </div>
@@ -348,9 +395,9 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li>📞 +91 98765 43210</li>
+                        <li>📞 +91 95816 08979</li>
                         <li>✉️ info@sriumadevitours.com</li>
-                        <li>📍 Haridwar, Uttarakhand</li>
+                        <li>📍 Skandagiri, Secunderabad</li>
                         <li>🕐 Mon-Sat: 9AM-7PM</li>
                     </ul>
                 </div>
@@ -360,6 +407,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/919581608979?text=🕉️ Namaste! I am interested in your spiritual tour packages. Please send me more information.', '_blank')" title="Contact us on WhatsApp">
+        <i style="margin-top: 16px; display: block;">💬</i>
+    </div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -406,6 +458,54 @@
             e.preventDefault();
             alert('Thank you for your inquiry! We will contact you soon to discuss your spiritual journey.');
             this.reset();
+        });
+
+        // Booking functionality
+        function openBookingForm(tourType) {
+            const tourDetails = {
+                'kailash': {
+                    name: 'Kailash Manasarovar Yatra (Road Route)',
+                    price: '₹2,35,000',
+                    duration: '14 Days',
+                    whatsapp: 'I am interested in the Kailash Manasarovar Yatra (Road Route) - 14 Days for ₹2,35,000 per person. Please send me more details.'
+                },
+                'chardham': {
+                    name: 'Chardham Yatra',
+                    price: '₹65,000',
+                    duration: '12 Days',
+                    whatsapp: 'I am interested in the Chardham Yatra - 12 Days for ₹65,000 per person. Please send me more details.'
+                },
+                'temples': {
+                    name: 'Sacred Temple Tours',
+                    price: '₹35,000',
+                    duration: '8 Days',
+                    whatsapp: 'I am interested in the Sacred Temple Tours - 8 Days for ₹35,000 per person. Please send me more details.'
+                },
+                'helicopter': {
+                    name: 'Kailash Helicopter Yatra (Premium)',
+                    price: '₹2,95,000',
+                    duration: '11 Days',
+                    whatsapp: 'I am interested in the Premium Kailash Helicopter Yatra - 11 Days for ₹2,95,000 per person. Please send me more details.'
+                }
+            };
+
+            const tour = tourDetails[tourType];
+            if (tour) {
+                const whatsappMessage = encodeURIComponent(tour.whatsapp);
+                const whatsappUrl = `https://wa.me/919581608979?text=${whatsappMessage}`;
+                
+                // Show booking confirmation
+                const confirmMessage = `🕉️ Book ${tour.name}\n\nPrice: ${tour.price} per person\nDuration: ${tour.duration}\n\nClick OK to contact us via WhatsApp for instant booking confirmation.`;
+                
+                if (confirm(confirmMessage)) {
+                    window.open(whatsappUrl, '_blank');
+                }
+            }
+        }
+
+        // Update the main Book Now button in hero section
+        document.querySelector('.bg-divine-gold').addEventListener('click', function() {
+            document.getElementById('tours').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
         // Add loading effect for images (placeholder API)
