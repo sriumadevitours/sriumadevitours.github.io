@@ -23,6 +23,8 @@
             background: linear-gradient(rgba(30, 64, 175, 0.8), rgba(249, 115, 22, 0.8)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -71,12 +73,14 @@
                         <span class="text-2xl font-bold text-spiritual-blue">🕉️ Sri Umadevi Tours</span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#home" class="text-gray-700 hover:text-spiritual-blue transition-colors">Home</a>
                     <a href="#tours" class="text-gray-700 hover:text-spiritual-blue transition-colors">Tours</a>
-                    <a href="#about" class="text-gray-700 hover:text-spiritual-blue transition-colors">About</a>
+                    <a href="#itineraries" class="text-gray-700 hover:text-spiritual-blue transition-colors">Itineraries</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-spiritual-blue transition-colors">Reviews</a>
+                    <a href="#faq" class="text-gray-700 hover:text-spiritual-blue transition-colors">FAQ</a>
                     <a href="#contact" class="text-gray-700 hover:text-spiritual-blue transition-colors">Contact</a>
-                    <button class="bg-sacred-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors">Book Now</button>
+                    <button class="bg-sacred-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors" onclick="window.open('https://wa.me/919581608979?text=🕉️ I want to book a spiritual tour package. Please help me choose the right pilgrimage for me!', '_blank')">Book Now</button>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-700 hover:text-spiritual-blue">
@@ -119,22 +123,21 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 <!-- Kailasa Manasarovar -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-spiritual-blue to-blue-600" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🏔️ Kailasa Manasarovar Yatra</h3>
-                        <p class="text-gray-600 mb-6">
-                            The ultimate spiritual journey to Lord Shiva's abode. Experience the divine energy of Mount Kailash and the sacred waters of Lake Manasarovar.
+                    <div class="h-64 bg-gradient-to-br from-spiritual-blue to-blue-600" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🏔️ Kailasa Manasarovar Yatra</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Once-in-a-lifetime pilgrimage to Lord Shiva's sacred abode. Experience spiritual transformation at the center of the universe.
                         </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹2,35,000</span>
-                                <span class="text-sm text-gray-500">/person</span>
-                            </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('kailash')">
-                                Book Now
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 14 Days | 🏔️ 5,630m Altitude | 🚶‍♂️ Sacred Parikrama
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-spiritual-blue text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('kailash')">
+                                Inquire Now
                             </button>
                         </div>
                     </div>
@@ -142,39 +145,113 @@
 
                 <!-- Chardham Yatra -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-sacred-orange to-orange-600" style="background-image: url('https://images.unsplash.com/photo-1582647692171-c6b32c9ef5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🛕 Chardham Yatra</h3>
-                        <p class="text-gray-600 mb-6">
-                            Visit the four sacred dhams - Yamunotri, Gangotri, Kedarnath, and Badrinath. A complete spiritual cleansing journey through the Himalayas.
+                    <div class="h-64 bg-gradient-to-br from-sacred-orange to-orange-600" style="background-image: url('https://images.unsplash.com/photo-1626784403057-27cf2736d8dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🛕 Chardham Yatra</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Visit the four sacred dhams - Yamunotri, Gangotri, Kedarnath, and Badrinath. Experience complete spiritual purification in the lap of the Himalayas where gods reside.
                         </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹65,000</span>
-                                <span class="text-sm text-gray-500">/person</span>
-                            </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('chardham')">
-                                Book Now
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 12 Days | 🏔️ Himalayan Shrines | 🛕 4 Sacred Dhams
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-sacred-orange text-white px-6 py-3 rounded-full hover:bg-orange-600 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('chardham')">
+                                Inquire Now
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Temple Tours -->
+                <!-- 12 Jyotirlinga Darshan -->
                 <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-64 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🏛️ Sacred Temple Tours</h3>
-                        <p class="text-gray-600 mb-6">
-                            Discover ancient temples and spiritual sites across India. From Varanasi to Rameshwaram, experience divine architecture and energy.
+                    <div class="h-64 bg-gradient-to-br from-purple-600 to-purple-800" style="background-image: url('https://images.unsplash.com/photo-1562601038-e06e75ac84c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🕉️ 12 Jyotirlinga Darshan</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Sacred pilgrimage to all 12 Jyotirlingas of Lord Shiva. Experience divine radiance at these self-manifested shrines across India.
                         </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-spiritual-blue font-semibold">
-                                <span class="text-2xl">₹35,000</span>
-                                <span class="text-sm text-gray-500">/person</span>
-                            </div>
-                            <button class="bg-spiritual-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" onclick="openBookingForm('temples')">
-                                Book Now
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 19 Days | 🕉️ 12 Sacred Shrines | 🙏 Moksha Journey
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('jyotirlinga')">
+                                Inquire Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hindu Temple Tour (Ayodhya & Varanasi) -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-amber-500 to-orange-600" style="background-image: url('https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🕉️ Hindu Temple Tour</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Visit Lord Rama's birthplace in Ayodhya and the eternal city of Varanasi. Witness the divine Ganga Aarti and seek blessings at Kashi Vishwanath Temple.
+                        </p>
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 5 Days | 🕉️ Ram Janmabhoomi | 🕉️ Kashi Vishwanath
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-amber-600 text-white px-6 py-3 rounded-full hover:bg-amber-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('hindu-temples')">
+                                Inquire Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divya Desam Temples -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-blue-600 to-indigo-800" style="background-image: url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🕉️ Divya Desam Temples</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Embark on the sacred journey to 108 Divya Desam temples dedicated to Lord Vishnu across South India, celebrated in ancient Tamil devotional poetry by Alwar saints.
+                        </p>
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 15 Days | 🕉️ 108 Sacred Temples | 🎵 Alwar Glorified
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('divya-desam')">
+                                Inquire Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramayana Trail Sri Lanka -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-red-600 to-orange-700" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🏹 Ramayana Trail Sri Lanka</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Follow Lord Rama's footsteps in Lanka. Visit Ashok Vatika, Ravana's palace, and sacred sites from the epic Ramayana.
+                        </p>
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 7 Days | 🏹 Epic Ramayana Sites | 🏝️ Sacred Lanka
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('ramayana-trail')">
+                                Inquire Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adi Kailash Yatra -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-green-600 to-teal-700" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">⛰️ Adi Kailash Yatra</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Journey to the "Little Kailash" in Uttarakhand. Experience the spiritual energy of Lord Shiva's alternative abode with stunning Himalayan views.
+                        </p>
+                        <div class="text-xs text-gray-500 mb-4">
+                            ⏱️ 8 Days | ⛰️ 6,191m Peak | 🏔️ Uttarakhand Himalayas
+                        </div>
+                        <div class="text-center">
+                            <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('adi-kailash')">
+                                Inquire Now
                             </button>
                         </div>
                     </div>
@@ -185,7 +262,7 @@
                     <div class="bg-divine-gold text-spiritual-blue text-center py-2 font-bold text-sm">
                         🚁 PREMIUM HELICOPTER
                     </div>
-                    <div class="h-56 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="h-56 bg-gradient-to-br from-divine-gold to-yellow-500" style="background-image: url('https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-3">🚁 Kailash Helicopter Yatra</h3>
                         <p class="text-gray-600 mb-4 text-sm">
@@ -194,17 +271,441 @@
                         <div class="text-xs text-gray-500 mb-4">
                             ⏱️ 11 Days | 🛏️ Premium Hotels | 🍽️ All Meals
                         </div>
-                        <div class="flex items-center justify-between">
-                            <div class="text-spiritual-blue font-semibold">
-                                <span class="text-xl">₹2,95,000</span>
-                                <span class="text-xs text-gray-500">/person</span>
-                            </div>
-                            <button class="bg-divine-gold text-spiritual-blue px-4 py-2 rounded-full hover:bg-yellow-400 transition-colors text-sm font-semibold" onclick="openBookingForm('helicopter')">
-                                Book Now
+                        <div class="text-center">
+                            <button class="bg-divine-gold text-spiritual-blue px-6 py-3 rounded-full hover:bg-yellow-400 transition-colors text-sm font-semibold w-full" onclick="openBookingForm('helicopter')">
+                                Inquire Now
                             </button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Once in a Lifetime Experience Section -->
+    <section class="py-20 bg-gradient-to-r from-spiritual-blue via-blue-800 to-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">🏔️ Kailash Manasarovar</h2>
+                <p class="text-2xl text-blue-100 font-semibold">Once in a Lifetime Spiritual Experience</p>
+                <div class="w-24 h-1 bg-divine-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-divine-gold">🕉️ Why Kailash Manasarovar?</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-divine-gold text-spiritual-blue rounded-full w-8 h-8 flex items-center justify-center font-bold mt-1">1</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">🏔️ Lord Shiva's Sacred Abode</h4>
+                                <p class="text-blue-100 leading-relaxed">Mount Kailash is the eternal dwelling place of Lord Shiva, where he resides with Goddess Parvati in a state of eternal meditation. This is the spiritual center of the universe for over a billion Hindus.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-divine-gold text-spiritual-blue rounded-full w-8 h-8 flex items-center justify-center font-bold mt-1">2</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">🌊 Sacred Lake Manasarovar</h4>
+                                <p class="text-blue-100 leading-relaxed">The "Lake of Mind" - taking a holy dip in Manasarovar is believed to wash away all sins and purify the soul. Each drop of this sacred water brings you closer to Moksha (liberation).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-divine-gold text-spiritual-blue rounded-full w-8 h-8 flex items-center justify-center font-bold mt-1">3</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">🚶‍♂️ Sacred Parikrama (Kora)</h4>
+                                <p class="text-blue-100 leading-relaxed">The 52-kilometer circumambulation of Mount Kailash represents one complete cycle of life and death. Each step cleanses lifetimes of karma and brings spiritual awakening.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-divine-gold text-spiritual-blue rounded-full w-8 h-8 flex items-center justify-center font-bold mt-1">4</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">🙏 Multi-Religious Convergence</h4>
+                                <p class="text-blue-100 leading-relaxed">Sacred to Hinduism, Buddhism, Jainism, and Bon religions - this is where four great faiths recognize the same divine energy. Pilgrims from across the world unite in devotion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-divine-gold">📿 Spiritual Significance</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-divine-gold pl-4">
+                                <p class="text-blue-100 italic">
+                                    "There are no mountains like the Himalaya, for in them are Kailas and Manasarovar. As the dew is dried up by the morning Sun, so are the sins of mankind dried up by the sight of the Himalaya."
+                                </p>
+                                <p class="text-divine-gold text-sm mt-2">- Skanda Purana</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-divine-gold">5,630m</div>
+                                <div class="text-blue-200 text-sm">Dolma La Pass</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-divine-gold">52km</div>
+                                <div class="text-blue-200 text-sm">Sacred Parikrama</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-divine-gold">4,588m</div>
+                                <div class="text-blue-200 text-sm">Lake Manasarovar</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-divine-gold">∞</div>
+                                <div class="text-blue-200 text-sm">Spiritual Transformation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-divine-gold bg-opacity-20 rounded-2xl p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4">🌟 Life-Changing Journey</h3>
+                        <p class="text-blue-100 mb-6 leading-relaxed">
+                            This is more than a pilgrimage - it's a transformative spiritual awakening that connects you directly with the divine. Most pilgrims describe it as the most profound experience of their lives.
+                        </p>
+                        <button class="bg-divine-gold text-spiritual-blue px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400 transition-colors" onclick="openBookingForm('kailash')">
+                            Begin Your Sacred Journey
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Itineraries Section -->
+    <section id="itineraries" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Detailed Tour Itineraries</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore day-by-day journey plans, inclusions, and spiritual experiences for each sacred pilgrimage
+                </p>
+            </div>
+
+            <!-- Itinerary Tabs -->
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="itinerary-tab active bg-spiritual-blue text-white px-6 py-3 rounded-full font-semibold" data-tab="kailash">
+                        🏔️ Kailash Manasarovar
+                    </button>
+                    <button class="itinerary-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-300" data-tab="helicopter">
+                        🚁 Helicopter Kailash
+                    </button>
+                    <button class="itinerary-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-300" data-tab="chardham">
+                        🛕 Chardham Yatra
+                    </button>
+                    <button class="itinerary-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-300" data-tab="temples">
+                        🏛️ Temple Tours
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kailash Manasarovar Itinerary -->
+            <div id="kailash-itinerary" class="itinerary-content">
+                <div class="bg-gradient-to-r from-spiritual-blue to-blue-600 text-white rounded-2xl p-8 mb-8">
+                    <h3 class="text-3xl font-bold mb-4">🏔️ Kailash Manasarovar Yatra - 14 Days</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">14 Days</div>
+                            <div class="text-blue-100">Sacred Journey</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">5,150m</div>
+                            <div class="text-blue-100">Max Altitude</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">52km</div>
+                            <div class="text-blue-100">Sacred Parikrama</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-6">📅 Day-by-Day Itinerary</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Delhi to Kathmandu</div>
+                                    <div class="text-gray-600 text-sm">Flight to Kathmandu, hotel check-in, orientation</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Kathmandu to Syabru Besi</div>
+                                    <div class="text-gray-600 text-sm">Drive through scenic landscapes, altitude acclimatization</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Border Crossing to Tibet</div>
+                                    <div class="text-gray-600 text-sm">Kyirong border, customs clearance, first Tibet experience</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Lake Manasarovar</div>
+                                    <div class="text-gray-600 text-sm">Holy dip, puja ceremonies, meditation by sacred waters</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">11</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Mount Kailash Parikrama</div>
+                                    <div class="text-gray-600 text-sm">3-day circumambulation, Dolma La Pass (5,630m)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-spiritual-blue text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">14</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Return to Delhi</div>
+                                    <div class="text-gray-600 text-sm">Journey back with blessed memories and spiritual fulfillment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-6">✅ Inclusions</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">Round-trip flights Delhi-Kathmandu</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">All accommodation (hotels & guesthouses)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">All meals during the journey</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">Tibet permits & Chinese visa</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">Experienced tour guide & spiritual leader</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">Medical kit & oxygen support</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-green-500">✓</div>
+                                <span class="text-gray-700">Group puja ceremonies</span>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 mt-8">❌ Exclusions</h4>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• Personal expenses & shopping</div>
+                            <div>• Tips for guides and drivers</div>
+                            <div>• Travel insurance (recommended)</div>
+                            <div>• Personal medical expenses</div>
+                        </div>
+
+                        <div class="mt-8 p-6 bg-sacred-orange bg-opacity-10 rounded-lg">
+                            <h5 class="font-bold text-gray-900 mb-2">📋 Required Documents</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Valid passport (6+ months validity)</li>
+                                <li>• Chinese visa (we assist with application)</li>
+                                <li>• Medical fitness certificate</li>
+                                <li>• Recent passport photos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other itineraries will be hidden by default -->
+            <div id="helicopter-itinerary" class="itinerary-content" style="display: none;">
+                <div class="bg-gradient-to-r from-divine-gold to-yellow-500 text-spiritual-blue rounded-2xl p-8 mb-8">
+                    <h3 class="text-3xl font-bold mb-4">🚁 Kailash Helicopter Yatra - 11 Days</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">11 Days</div>
+                            <div class="text-yellow-700">Luxury Journey</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">Premium</div>
+                            <div class="text-yellow-700">Helicopter Access</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">Sacred</div>
+                            <div class="text-yellow-700">Kailash Journey</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center py-8">
+                    <p class="text-gray-600 mb-4">Skip the arduous mountain trek - fly directly to sacred destinations in luxury helicopters.</p>
+                    <button class="bg-divine-gold text-spiritual-blue px-8 py-3 rounded-full font-semibold hover:bg-yellow-400" onclick="openBookingForm('helicopter')">
+                        Book Premium Helicopter Tour
+                    </button>
+                </div>
+            </div>
+
+            <div id="chardham-itinerary" class="itinerary-content" style="display: none;">
+                <div class="bg-gradient-to-r from-sacred-orange to-orange-600 text-white rounded-2xl p-8 mb-8">
+                    <h3 class="text-3xl font-bold mb-4">🛕 Chardham Yatra - 12 Days</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">12 Days</div>
+                            <div class="text-orange-100">Four Sacred Dhams</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">4 Temples</div>
+                            <div class="text-orange-100">Divine Destinations</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">Himalayan</div>
+                            <div class="text-orange-100">Sacred Sites</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center py-8">
+                    <p class="text-gray-600 mb-4">Visit Yamunotri, Gangotri, Kedarnath, and Badrinath in a complete spiritual cleansing journey.</p>
+                    <button class="bg-sacred-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600" onclick="openBookingForm('chardham')">
+                        Book Chardham Yatra
+                    </button>
+                </div>
+            </div>
+
+            <div id="temples-itinerary" class="itinerary-content" style="display: none;">
+                <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-2xl p-8 mb-8">
+                    <h3 class="text-3xl font-bold mb-4">🏛️ Sacred Temple Tours - 8 Days</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">8 Days</div>
+                            <div class="text-purple-100">Temple Hopping</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">10+ Temples</div>
+                            <div class="text-purple-100">Ancient Architecture</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">Sacred</div>
+                            <div class="text-purple-100">Pilgrimage Sites</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center py-8">
+                    <p class="text-gray-600 mb-4">Explore ancient temples across India - Varanasi, Rameshwaram, Madurai, and more sacred sites.</p>
+                    <button class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700" onclick="openBookingForm('temples')">
+                        Book Temple Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gradient-to-r from-spiritual-blue to-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">🙏 Blessed Testimonials</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Hear from fellow devotees who have experienced divine transformation through our spiritual journeys
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-divine-gold rounded-full flex items-center justify-center text-spiritual-blue font-bold text-xl">
+                            R
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Rajesh Sharma</h4>
+                            <p class="text-blue-200 text-sm">Kailash Manasarovar Yatra 2023</p>
+                        </div>
+                    </div>
+                    <div class="text-divine-gold text-3xl mb-4">"</div>
+                    <p class="text-blue-100 leading-relaxed mb-4">
+                        "The Kailash Manasarovar journey with Sri Umadevi Tours was life-changing! Perfect organization, spiritual guidance, and unforgettable moments at Lord Shiva's abode. Highly recommended for true devotees."
+                    </p>
+                    <div class="flex text-divine-gold">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-sacred-orange rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            P
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Priya Devi</h4>
+                            <p class="text-blue-200 text-sm">Chardham Yatra 2023</p>
+                        </div>
+                    </div>
+                    <div class="text-divine-gold text-3xl mb-4">"</div>
+                    <p class="text-blue-100 leading-relaxed mb-4">
+                        "Completed all four dhams with complete peace of mind. Excellent arrangements, comfortable stay, and spiritual atmosphere throughout. The guides were knowledgeable and caring."
+                    </p>
+                    <div class="flex text-divine-gold">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            S
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Suresh & Family</h4>
+                            <p class="text-blue-200 text-sm">Temple Tours 2024</p>
+                        </div>
+                    </div>
+                    <div class="text-divine-gold text-3xl mb-4">"</div>
+                    <p class="text-blue-100 leading-relaxed mb-4">
+                        "Amazing temple tour covering Varanasi, Rameshwaram, and Madurai. Perfect for families wanting to explore India's spiritual heritage. Professional team with deep devotion."
+                    </p>
+                    <div class="flex text-divine-gold">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="grid md:grid-cols-4 gap-8 mt-16 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-divine-gold mb-2">5000+</div>
+                    <div class="text-blue-200">Happy Pilgrims</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-divine-gold mb-2">15+</div>
+                    <div class="text-blue-200">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-divine-gold mb-2">500+</div>
+                    <div class="text-blue-200">Kailash Journeys</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-divine-gold mb-2">100%</div>
+                    <div class="text-blue-200">Satisfaction Rate</div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <button class="bg-divine-gold text-spiritual-blue px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors" onclick="window.open('https://wa.me/919581608979?text=🕉️ I would like to join your spiritual tours and become part of your blessed pilgrim family!', '_blank')">
+                    Join Our Spiritual Family
+                </button>
             </div>
         </div>
     </section>
@@ -259,6 +760,170 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">❓ Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Common questions about spiritual pilgrimage tours, answered by our experts
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(1)">
+                        <h3 class="text-lg font-semibold text-gray-900">🏔️ What is the difficulty level of Kailash Manasarovar Yatra?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-1">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-1" style="display: none;">
+                        <p>The Kailash Manasarovar Yatra is considered moderately challenging due to high altitude (up to 5,630m at Dolma La Pass). Basic fitness is required, but our experienced guides provide complete support. We include acclimatization days and medical assistance throughout the journey.</p>
+                        <div class="mt-3 text-sm">
+                            <strong>Recommended:</strong> Regular walking/exercise 2 months before departure, medical check-up, and mental preparation for spiritual transformation.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(2)">
+                        <h3 class="text-lg font-semibold text-gray-900">📋 What documents are required for Tibet travel?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-2">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-2" style="display: none;">
+                        <ul class="space-y-2">
+                            <li>• <strong>Passport:</strong> Valid for 6+ months with 2 blank pages</li>
+                            <li>• <strong>Chinese Visa:</strong> We assist with group visa application</li>
+                            <li>• <strong>Tibet Permit:</strong> Arranged by our team</li>
+                            <li>• <strong>Medical Certificate:</strong> Fitness clearance from doctor</li>
+                            <li>• <strong>Travel Insurance:</strong> Strongly recommended</li>
+                        </ul>
+                        <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+                            <strong>Note:</strong> We handle all permit arrangements. You just need to provide passport copies and medical clearance.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(3)">
+                        <h3 class="text-lg font-semibold text-gray-900">💰 What is included in the tour package price?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-3">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-3" style="display: none;">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-green-600 mb-2">✅ Included:</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• All accommodation</li>
+                                    <li>• All meals</li>
+                                    <li>• Transportation</li>
+                                    <li>• Permits & visas</li>
+                                    <li>• Experienced guides</li>
+                                    <li>• Medical support</li>
+                                    <li>• Group ceremonies</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-red-600 mb-2">❌ Not Included:</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Personal expenses</li>
+                                    <li>• Shopping</li>
+                                    <li>• Tips</li>
+                                    <li>• Travel insurance</li>
+                                    <li>• Personal medical costs</li>
+                                    <li>• Extra activities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(4)">
+                        <h3 class="text-lg font-semibold text-gray-900">🏨 What type of accommodation is provided?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-4">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-4" style="display: none;">
+                        <div class="space-y-3">
+                            <div><strong>Kathmandu:</strong> 3-4 star hotels with modern amenities</div>
+                            <div><strong>Tibet (Road journey):</strong> Best available guesthouses and hotels</div>
+                            <div><strong>Kailash area:</strong> Simple but clean guesthouses (shared facilities)</div>
+                            <div><strong>Helicopter packages:</strong> Premium hotels throughout</div>
+                        </div>
+                        <div class="mt-4 p-3 bg-yellow-50 rounded-lg">
+                            <strong>Important:</strong> High-altitude regions have basic facilities, but we ensure cleanliness and comfort within available options.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(5)">
+                        <h3 class="text-lg font-semibold text-gray-900">📅 When is the best time to visit Kailash Manasarovar?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-5">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-5" style="display: none;">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-2 text-green-600">🌞 Peak Season (May-September)</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Clear weather and roads</li>
+                                    <li>• Best visibility of Mount Kailash</li>
+                                    <li>• Comfortable temperatures</li>
+                                    <li>• All routes accessible</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2 text-blue-600">❄️ Off Season (October-April)</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Cold weather, snow possible</li>
+                                    <li>• Some routes may be closed</li>
+                                    <li>• Fewer pilgrims</li>
+                                    <li>• Lower prices available</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-spiritual-blue bg-opacity-10 rounded-lg">
+                            <strong>Recommended:</strong> May to September for first-time visitors. June-August for families.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(6)">
+                        <h3 class="text-lg font-semibold text-gray-900">🍽️ What type of food is served during the journey?</h3>
+                        <span class="faq-icon text-2xl text-spiritual-blue transition-transform" id="faq-icon-6">+</span>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 leading-relaxed" id="faq-content-6" style="display: none;">
+                        <p>We provide vegetarian meals throughout the journey, respecting the spiritual nature of the pilgrimage. Meals include:</p>
+                        <ul class="mt-3 space-y-1">
+                            <li>• <strong>Indian cuisine:</strong> Dal, rice, roti, vegetables</li>
+                            <li>• <strong>Local specialties:</strong> Tibetan dishes, noodles</li>
+                            <li>• <strong>Continental options:</strong> Pasta, soups when available</li>
+                            <li>• <strong>High-energy foods:</strong> For altitude and trekking</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-green-50 rounded-lg">
+                            <strong>Special dietary needs:</strong> Please inform us in advance. We accommodate Jain, gluten-free, and other requirements wherever possible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="text-center mt-12 p-8 bg-spiritual-blue bg-opacity-5 rounded-2xl">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
+                <p class="text-gray-600 mb-6">Our spiritual journey experts are here to help you plan your perfect pilgrimage</p>
+                <button class="bg-spiritual-blue text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors" onclick="window.open('https://wa.me/919581608979?text=🕉️ I have some questions about your spiritual tour packages. Please help me plan my pilgrimage.', '_blank')">
+                    Ask Our Experts
+                </button>
             </div>
         </div>
     </section>
@@ -436,9 +1101,11 @@
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">Home</a>
                 <a href="#tours" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">Tours</a>
-                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">About</a>
+                <a href="#itineraries" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">Itineraries</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">Reviews</a>
+                <a href="#faq" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">FAQ</a>
                 <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-spiritual-blue">Contact</a>
-                <a href="#" class="block px-3 py-2 bg-sacred-orange text-white rounded">Book Now</a>
+                <a href="#" class="block px-3 py-2 bg-sacred-orange text-white rounded" onclick="window.open('https://wa.me/919581608979?text=🕉️ I want to book a spiritual tour. Please help me!', '_blank')">Book Now</a>
             </div>
         `;
         
@@ -465,27 +1132,43 @@
             const tourDetails = {
                 'kailash': {
                     name: 'Kailash Manasarovar Yatra (Road Route)',
-                    price: '₹2,35,000',
                     duration: '14 Days',
-                    whatsapp: 'I am interested in the Kailash Manasarovar Yatra (Road Route) - 14 Days for ₹2,35,000 per person. Please send me more details.'
-                },
-                'chardham': {
-                    name: 'Chardham Yatra',
-                    price: '₹65,000',
-                    duration: '12 Days',
-                    whatsapp: 'I am interested in the Chardham Yatra - 12 Days for ₹65,000 per person. Please send me more details.'
-                },
-                'temples': {
-                    name: 'Sacred Temple Tours',
-                    price: '₹35,000',
-                    duration: '8 Days',
-                    whatsapp: 'I am interested in the Sacred Temple Tours - 8 Days for ₹35,000 per person. Please send me more details.'
+                    whatsapp: 'I am interested in the Kailash Manasarovar Yatra (Road Route) - 14 Days . This is a once-in-a-lifetime spiritual journey to Lord Shiva\'s abode. Please send me detailed information.'
                 },
                 'helicopter': {
                     name: 'Kailash Helicopter Yatra (Premium)',
-                    price: '₹2,95,000',
                     duration: '11 Days',
-                    whatsapp: 'I am interested in the Premium Kailash Helicopter Yatra - 11 Days for ₹2,95,000 per person. Please send me more details.'
+                    whatsapp: 'I am interested in the Premium Kailash Helicopter Yatra - 11 Days . I prefer the luxury helicopter route. Please send me more details.'
+                },
+                'chardham': {
+                    name: 'Chardham Yatra',
+                    duration: '12 Days',
+                    whatsapp: 'I am interested in the Chardham Yatra - 12 Days . Please send me details about visiting all four sacred dhams.'
+                },
+                'jyotirlinga': {
+                    name: '12 Jyotirlinga Darshan',
+                    duration: '19 Days',
+                    whatsapp: 'I am interested in the 12 Jyotirlinga Darshan tour - 19 Days . I want to visit all sacred Jyotirlingas of Lord Shiva. Please send me complete itinerary.'
+                },
+                'hindu-temples': {
+                    name: 'Hindu Temple Tour (Ayodhya & Varanasi)',
+                    duration: '5 Days',
+                    whatsapp: 'I am interested in the Hindu Temple Tour covering Ayodhya Ram Janmabhoomi and Varanasi Kashi Vishwanath - 5 Days . Please send me more details.'
+                },
+                'divya-desam': {
+                    name: 'Divya Desam Temples Tour',
+                    duration: '15 Days',
+                    whatsapp: 'I am interested in the Divya Desam Temples Tour - 15 Days . I want to visit the 108 sacred Vishnu temples. Please send me detailed itinerary.'
+                },
+                'ramayana-trail': {
+                    name: 'Ramayana Trail Sri Lanka',
+                    duration: '7 Days',
+                    whatsapp: 'I am interested in the Ramayana Trail Sri Lanka tour - 7 Days . I want to follow Lord Rama\'s footsteps in Lanka. Please send me more details.'
+                },
+                'adi-kailash': {
+                    name: 'Adi Kailash Yatra',
+                    duration: '8 Days',
+                    whatsapp: 'I am interested in the Adi Kailash Yatra - 8 Days. I want to experience the spiritual energy at Little Kailash in Uttarakhand. Please send me detailed information.'
                 }
             };
 
@@ -495,7 +1178,7 @@
                 const whatsappUrl = `https://wa.me/919581608979?text=${whatsappMessage}`;
                 
                 // Show booking confirmation
-                const confirmMessage = `🕉️ Book ${tour.name}\n\nPrice: ${tour.price} per person\nDuration: ${tour.duration}\n\nClick OK to contact us via WhatsApp for instant booking confirmation.`;
+                const confirmMessage = `🕉️ Inquire About ${tour.name}\n\nDuration: ${tour.duration}\n\nClick OK to contact us via WhatsApp for detailed information and booking assistance.`;
                 
                 if (confirm(confirmMessage)) {
                     window.open(whatsappUrl, '_blank');
@@ -507,6 +1190,47 @@
         document.querySelector('.bg-divine-gold').addEventListener('click', function() {
             document.getElementById('tours').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+
+        // Itinerary tab functionality
+        document.querySelectorAll('.itinerary-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.dataset.tab;
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.itinerary-tab').forEach(t => {
+                    t.classList.remove('active', 'bg-spiritual-blue', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active', 'bg-spiritual-blue', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                // Hide all itinerary content
+                document.querySelectorAll('.itinerary-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Show target itinerary content
+                document.getElementById(targetTab + '-itinerary').style.display = 'block';
+            });
+        });
+
+        // FAQ toggle functionality
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
 
         // Add loading effect for images (placeholder API)
         document.addEventListener('DOMContentLoaded', function() {
