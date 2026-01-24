@@ -22,7 +22,7 @@ export function TourCard({ tour }: TourCardProps) {
     <Card className="group overflow-hidden hover-elevate" data-testid={`card-tour-${tour.slug}`}>
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
-          src={tour.imageUrl || "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800"}
+          src={tour.imageUrl || "/images/hero/kailash-manasarovar-hero.jpg"}
           alt={tour.name}
           className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
         />

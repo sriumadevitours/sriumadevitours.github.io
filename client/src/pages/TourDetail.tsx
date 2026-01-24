@@ -87,7 +87,7 @@ export default function TourDetail() {
     <div className="min-h-screen bg-background">
       <div className="relative h-[50vh] min-h-[400px]">
         <img
-          src={tour.imageUrl || "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920"}
+          src={tour.imageUrl || "/images/hero/kailash-manasarovar-hero.jpg"}
           alt={tour.name}
           className="w-full h-full object-cover"
         />

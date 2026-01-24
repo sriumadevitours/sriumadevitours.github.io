@@ -121,7 +121,7 @@ export default function About() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80"
+                src="/images/hero/kailash-manasarovar-hero-4.jpeg"
                 alt="Mount Kailash - Sacred Himalayan Journey"
                 className="rounded-lg shadow-xl"
               />
