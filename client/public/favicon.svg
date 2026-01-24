@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="omGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#omGradient)" stroke="#FFD700" stroke-width="8"/>
+
+  <!-- Om Symbol -->
+  <text x="256" y="320" font-family="serif" font-size="180" fill="#FFD700" text-anchor="middle" font-weight="bold">ॐ</text>
+
+  <!-- Mountain silhouette -->
+  <path d="M100 380 L180 280 L256 320 L332 260 L412 380 Z" fill="url(#mountainGradient)" opacity="0.3"/>
+</svg>
