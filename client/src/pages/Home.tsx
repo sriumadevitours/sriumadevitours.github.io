@@ -7,6 +7,7 @@ import { TourCard } from "@/components/TourCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { InquiryForm } from "@/components/InquiryForm";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { KailashSectionCarousel } from "@/components/KailashSectionCarousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Mountain,
@@ -221,11 +222,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80"
-                alt="Kailash Manasarovar"
-                className="rounded-lg shadow-xl"
-              />
+              <KailashSectionCarousel />
               <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-lg shadow-lg border hidden md:block">
                 <div className="flex gap-4">
                   <div className="text-center">
