@@ -223,22 +223,6 @@ export default function Home() {
             </div>
             <div className="relative">
               <KailashSectionCarousel />
-              <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-lg shadow-lg border hidden md:block">
-                <div className="flex gap-4">
-                  <div className="text-center">
-                    <p className="text-2xl font-bold text-primary">5,630m</p>
-                    <p className="text-xs text-muted-foreground">Dolma La Pass</p>
-                  </div>
-                  <div className="text-center border-l pl-4">
-                    <p className="text-2xl font-bold text-primary">52km</p>
-                    <p className="text-xs text-muted-foreground">Parikrama</p>
-                  </div>
-                  <div className="text-center border-l pl-4">
-                    <p className="text-2xl font-bold text-primary">14</p>
-                    <p className="text-xs text-muted-foreground">Days Journey</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
