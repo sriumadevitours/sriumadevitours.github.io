@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { TourCard } from "@/components/TourCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { InquiryForm } from "@/components/InquiryForm";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Mountain,
@@ -66,14 +67,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80"
-            alt="Mount Kailash"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
-        </div>
+        <HeroCarousel />
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <Badge className="mb-4 bg-accent text-accent-foreground" data-testid="badge-hero">
