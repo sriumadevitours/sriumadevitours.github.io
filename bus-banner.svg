@@ -1,0 +1,82 @@
+<svg width="2000" height="600" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="mountainGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="2000" height="600" fill="url(#backgroundGradient)"/>
+  
+  <!-- Mountain Silhouettes (Background) -->
+  <path d="M0 400 L200 200 L400 250 L600 150 L800 220 L1000 180 L1200 240 L1400 160 L1600 200 L1800 140 L2000 190 L2000 600 Z" fill="url(#mountainGradient)"/>
+  
+  <!-- Logo Circle -->
+  <circle cx="200" cy="300" r="120" fill="#FFFFFF" stroke="#FFD700" stroke-width="8"/>
+  
+  <!-- Om Symbol in Logo -->
+  <text x="200" y="330" font-family="serif" font-size="80" fill="#1E40AF" text-anchor="middle" font-weight="bold">ॐ</text>
+  
+  <!-- Main Company Name -->
+  <text x="400" y="220" font-family="serif" font-size="120" fill="#FFD700" font-weight="bold" stroke="#1E40AF" stroke-width="2">SRI UMADEVI TOURS</text>
+  
+  <!-- Tagline -->
+  <text x="400" y="280" font-family="serif" font-size="48" fill="#FFFFFF" font-weight="600">Divine Spiritual Journeys</text>
+  
+  <!-- Kailash Focus -->
+  <text x="400" y="350" font-family="sans-serif" font-size="42" fill="#FFD700" font-weight="bold">🏔️ KAILASH MANASAROVAR YATRA SPECIALISTS</text>
+  
+  <!-- Contact Information -->
+  <rect x="400" y="380" width="1500" height="150" fill="rgba(255, 255, 255, 0.9)" rx="20"/>
+  
+  <text x="450" y="425" font-family="sans-serif" font-size="36" fill="#1E40AF" font-weight="bold">📞 CONTACT: +91 95816 08979 | +91 97039 90123</text>
+  
+  <text x="450" y="470" font-family="sans-serif" font-size="32" fill="#F97316" font-weight="600">📍 Beside Sri Subrahmanya Swami Temple, Skandagiri, Secunderabad</text>
+  
+  <text x="450" y="510" font-family="sans-serif" font-size="36" fill="#1E40AF" font-weight="bold">💬 WhatsApp Booking | 24/7 Support | 15+ Years Experience</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="1700" cy="150" r="30" fill="#FFD700" opacity="0.8"/>
+  <circle cx="1800" cy="100" r="20" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="1750" cy="120" r="15" fill="#F97316" opacity="0.7"/>
+  
+  <!-- QR Code Placeholder (you can replace with actual QR code) -->
+  <rect x="1750" y="200" width="200" height="200" fill="#FFFFFF" stroke="#1E40AF" stroke-width="4" rx="10"/>
+  <text x="1850" y="310" font-family="sans-serif" font-size="24" fill="#1E40AF" text-anchor="middle" font-weight="bold">SCAN FOR</text>
+  <text x="1850" y="340" font-family="sans-serif" font-size="20" fill="#1E40AF" text-anchor="middle" font-weight="bold">WHATSAPP</text>
+  <text x="1850" y="360" font-family="sans-serif" font-size="20" fill="#1E40AF" text-anchor="middle" font-weight="bold">BOOKING</text>
+  
+  <!-- Grid pattern in QR placeholder -->
+  <rect x="1760" y="210" width="180" height="140" fill="none" stroke="#1E40AF" stroke-width="1" opacity="0.3"/>
+  <line x1="1770" y1="210" x2="1770" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1780" y1="210" x2="1780" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1790" y1="210" x2="1790" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1800" y1="210" x2="1800" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1810" y1="210" x2="1810" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1820" y1="210" x2="1820" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1830" y1="210" x2="1830" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1840" y1="210" x2="1840" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1850" y1="210" x2="1850" y2="350" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  
+  <line x1="1760" y1="220" x2="1940" y2="220" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="230" x2="1940" y2="230" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="240" x2="1940" y2="240" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="250" x2="1940" y2="250" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="260" x2="1940" y2="260" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="270" x2="1940" y2="270" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <line x1="1760" y1="280" x2="1940" y2="280" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  
+</svg>

@@ -1,0 +1,437 @@
+import { db } from "./db";
+import { tours, testimonials, admins, departures } from "@shared/schema";
+import bcrypt from "bcryptjs";
+
+async function seed() {
+  console.log("Seeding database...");
+
+  const hashedPassword = await bcrypt.hash("admin123", 10);
+  
+  await db.insert(admins).values({
+    username: "admin",
+    password: hashedPassword,
+    name: "Sri Umadevi Admin",
+    isActive: true,
+  }).onConflictDoNothing();
+
+  console.log("Admin created: username=admin, password=admin123");
+
+  const tourData = [
+    {
+      name: "Kailash Manasarovar Yatra",
+      slug: "kailash-manasarovar",
+      shortDescription: "Experience the sacred journey to Mount Kailash, the eternal dwelling of Lord Shiva, and take a holy dip in Lake Manasarovar.",
+      description: "Mount Kailash is the eternal dwelling place of Lord Shiva, where he resides with Goddess Parvati in a state of eternal meditation. This is the spiritual center of the universe for over a billion Hindus. The Kailash Manasarovar Yatra is a once-in-a-lifetime pilgrimage that takes you through breathtaking Himalayan landscapes to one of the most sacred mountains in the world. Experience the 52-kilometer Parikrama (circumambulation) and take a holy dip in the pristine waters of Lake Manasarovar.",
+      duration: "14 Days",
+      category: "himalayan",
+      highlights: ["Mount Kailash Darshan", "52km Parikrama", "Manasarovar Lake", "Dolma La Pass (5,630m)", "Tibet Border Crossing"],
+      pricePerPerson: 275000,
+      originalPrice: 325000,
+      maxAltitude: "5,630m",
+      difficulty: "Challenging",
+      imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800",
+      inclusions: [
+        "All transportation from Kathmandu",
+        "Accommodation in hotels and guesthouses",
+        "All meals during the yatra",
+        "Experienced spiritual guide",
+        "Tibet travel permits",
+        "Oxygen cylinders and first aid",
+        "Pony/Porter for Parikrama",
+        "All entry fees and taxes",
+      ],
+      exclusions: [
+        "International airfare",
+        "Personal expenses",
+        "Travel insurance",
+        "Tips and gratuities",
+        "Visa fees",
+        "Any services not mentioned in inclusions",
+      ],
+      itinerary: [
+        { day: 1, title: "Arrival in Kathmandu", description: "Welcome to Nepal! Transfer to hotel. Evening briefing about the yatra.", meals: "Dinner" },
+        { day: 2, title: "Kathmandu Sightseeing", description: "Visit Pashupatinath Temple and prepare for the journey ahead. Permit processing.", meals: "B/L/D" },
+        { day: 3, title: "Fly to Nepalgunj", description: "Early morning flight to Nepalgunj. Rest and acclimatization.", meals: "B/L/D" },
+        { day: 4, title: "Fly to Simikot", description: "Scenic flight to Simikot (2,950m). Begin the Himalayan adventure.", meals: "B/L/D" },
+        { day: 5, title: "Trek to Dharapori", description: "Start the trek along the Humla Karnali River.", distance: "25km", duration: "8 hours", meals: "B/L/D" },
+        { day: 6, title: "Trek to Til", description: "Continue through remote villages with stunning valley views.", distance: "20km", duration: "7 hours", meals: "B/L/D" },
+        { day: 7, title: "Cross to Tibet - Purang", description: "Cross the Nara La Pass (4,580m) into Tibet. Immigration at Hilsa.", meals: "B/L/D" },
+        { day: 8, title: "Purang to Manasarovar", description: "Drive to the sacred Lake Manasarovar. Evening puja at the lake.", meals: "B/L/D" },
+        { day: 9, title: "Manasarovar Holy Dip", description: "Early morning holy bath in Lake Manasarovar. Meditation and prayers.", meals: "B/L/D" },
+        { day: 10, title: "Darchen - Parikrama Day 1", description: "Drive to Darchen and begin the sacred Parikrama. Trek to Dirapuk.", distance: "10km", duration: "5 hours", meals: "B/L/D" },
+        { day: 11, title: "Parikrama Day 2 - Dolma La", description: "Cross Dolma La Pass (5,630m), the highest point. Descend to Zuthulpuk.", distance: "22km", duration: "10 hours", meals: "B/L/D" },
+        { day: 12, title: "Complete Parikrama", description: "Complete the Parikrama and return to Darchen. Celebratory puja.", distance: "9km", duration: "4 hours", meals: "B/L/D" },
+        { day: 13, title: "Return to Kathmandu", description: "Fly back to Kathmandu via Simikot. Farewell dinner.", meals: "B/L/D" },
+        { day: 14, title: "Departure", description: "Transfer to airport. Tour ends with divine blessings.", meals: "Breakfast" },
+      ],
+      requirements: [
+        "Valid passport with minimum 6 months validity",
+        "Chinese visa (assistance provided)",
+        "Medical fitness certificate",
+        "4 passport-size photographs",
+        "Physical fitness for high-altitude trekking",
+      ],
+      cancellationPolicy: "50% refund if cancelled 30 days before departure\n25% refund if cancelled 15-30 days before\nNo refund for cancellations less than 15 days before departure",
+      isActive: true,
+      isFeatured: true,
+      isPremium: true,
+      sortOrder: 1,
+    },
+    {
+      name: "Chardham Yatra",
+      slug: "chardham-yatra",
+      shortDescription: "Visit the four sacred Hindu pilgrimage sites of Yamunotri, Gangotri, Kedarnath, and Badrinath in the majestic Himalayas.",
+      description: "The Chardham Yatra is one of the most sacred pilgrimages in Hinduism, visiting four divine abodes in Uttarakhand. Yamunotri (source of River Yamuna), Gangotri (origin of River Ganga), Kedarnath (one of 12 Jyotirlingas), and Badrinath (abode of Lord Vishnu) form this holy circuit. Complete this sacred journey and attain moksha.",
+      duration: "12 Days",
+      category: "himalayan",
+      highlights: ["Yamunotri Temple", "Gangotri Temple", "Kedarnath Jyotirlinga", "Badrinath Dham", "Helicopter Option Available"],
+      pricePerPerson: 45000,
+      originalPrice: 55000,
+      maxAltitude: "3,583m",
+      difficulty: "Moderate",
+      imageUrl: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800",
+      inclusions: [
+        "AC transportation from Delhi",
+        "Hotel accommodation",
+        "All meals",
+        "Experienced guide",
+        "All temple entry fees",
+        "Pony/Palki for Kedarnath optional",
+      ],
+      exclusions: [
+        "Personal expenses",
+        "Helicopter tickets",
+        "Tips",
+        "Travel insurance",
+      ],
+      itinerary: [
+        { day: 1, title: "Delhi to Haridwar", description: "Depart from Delhi and drive to Haridwar. Evening Ganga Aarti.", distance: "220km", duration: "6 hours", meals: "Dinner" },
+        { day: 2, title: "Haridwar to Barkot", description: "Drive towards Yamunotri base. En route visit Kempty Falls.", distance: "180km", duration: "7 hours", meals: "B/L/D" },
+        { day: 3, title: "Yamunotri Darshan", description: "Trek to Yamunotri Temple (6km). Take darshan and holy dip.", distance: "12km trek", duration: "6 hours", meals: "B/L/D" },
+        { day: 4, title: "Barkot to Uttarkashi", description: "Drive to Uttarkashi, a major pilgrimage center.", distance: "90km", duration: "4 hours", meals: "B/L/D" },
+        { day: 5, title: "Gangotri Darshan", description: "Early morning drive to Gangotri. Temple darshan and puja.", distance: "100km", duration: "4 hours", meals: "B/L/D" },
+        { day: 6, title: "Uttarkashi to Guptkashi", description: "Scenic drive to Guptkashi via Tehri Dam.", distance: "220km", duration: "8 hours", meals: "B/L/D" },
+        { day: 7, title: "Kedarnath Trek", description: "Early morning trek/helicopter to Kedarnath. Evening aarti.", distance: "18km trek", duration: "7 hours", meals: "B/L/D" },
+        { day: 8, title: "Kedarnath to Guptkashi", description: "Morning darshan and return trek to Gaurikund.", distance: "18km", duration: "6 hours", meals: "B/L/D" },
+        { day: 9, title: "Guptkashi to Badrinath", description: "Drive to Badrinath via Joshimath.", distance: "190km", duration: "7 hours", meals: "B/L/D" },
+        { day: 10, title: "Badrinath Darshan", description: "Morning darshan at Badrinath Temple. Visit Mana Village.", meals: "B/L/D" },
+        { day: 11, title: "Badrinath to Rudraprayag", description: "Return journey with stops at Panchprayag.", distance: "160km", duration: "6 hours", meals: "B/L/D" },
+        { day: 12, title: "Rudraprayag to Delhi", description: "Final drive back to Delhi. Tour ends.", distance: "380km", duration: "10 hours", meals: "Breakfast" },
+      ],
+      requirements: [
+        "Valid ID proof (Aadhar/Voter ID)",
+        "Medical fitness certificate for elderly pilgrims",
+        "Basic physical fitness for trekking",
+      ],
+      isActive: true,
+      isFeatured: true,
+      isPremium: false,
+      sortOrder: 2,
+    },
+    {
+      name: "12 Jyotirlinga Darshan",
+      slug: "12-jyotirlinga",
+      shortDescription: "Complete the sacred circuit of all 12 Jyotirlingas across India - the divine manifestations of Lord Shiva.",
+      description: "The 12 Jyotirlingas are the most sacred shrines dedicated to Lord Shiva. These temples are spread across India, and visiting all of them is considered one of the holiest pilgrimages. From Somnath in Gujarat to Mallikarjuna in Andhra Pradesh, experience the divine energy of Lord Shiva in all his manifestations.",
+      duration: "21 Days",
+      category: "jyotirlinga",
+      highlights: ["All 12 Jyotirlingas", "AC Transportation", "Expert Guide", "Comfortable Hotels", "All Meals Included"],
+      pricePerPerson: 85000,
+      originalPrice: 95000,
+      imageUrl: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800",
+      inclusions: [
+        "AC Volvo bus/train transportation",
+        "3-star hotel accommodation",
+        "All vegetarian meals",
+        "Temple guide at all Jyotirlingas",
+        "All temple entry fees and VIP darshan where available",
+      ],
+      exclusions: [
+        "Personal expenses",
+        "Tips",
+        "Travel insurance",
+        "Anything not mentioned",
+      ],
+      itinerary: [
+        { day: 1, title: "Somnath Jyotirlinga", description: "Begin the sacred journey at Somnath, the first Jyotirlinga.", meals: "B/L/D" },
+        { day: 2, title: "Nageshwar Jyotirlinga", description: "Visit Nageshwar near Dwarka, Gujarat.", meals: "B/L/D" },
+        { day: 3, title: "Bhimashankar Jyotirlinga", description: "Journey to Bhimashankar in the Sahyadri hills of Maharashtra.", meals: "B/L/D" },
+        { day: 4, title: "Trimbakeshwar Jyotirlinga", description: "Visit Trimbakeshwar near Nashik, source of River Godavari.", meals: "B/L/D" },
+        { day: 5, title: "Grishneshwar Jyotirlinga", description: "Visit Grishneshwar near Ellora Caves.", meals: "B/L/D" },
+        { day: 6, title: "Mahakaleshwar Jyotirlinga", description: "Experience the powerful Bhasma Aarti at Ujjain.", meals: "B/L/D" },
+        { day: 7, title: "Omkareshwar Jyotirlinga", description: "Visit Omkareshwar on the island of Mandhata.", meals: "B/L/D" },
+        { day: 8, title: "Rest Day", description: "Rest and reflection day.", meals: "B/L/D" },
+        { day: 9, title: "Kedarnath Jyotirlinga", description: "Trek to Kedarnath in the Himalayas.", meals: "B/L/D" },
+        { day: 10, title: "Kedarnath Darshan", description: "Morning darshan and return.", meals: "B/L/D" },
+        { day: 11, title: "Kashi Vishwanath", description: "Visit the ancient Kashi Vishwanath in Varanasi.", meals: "B/L/D" },
+        { day: 12, title: "Varanasi Sightseeing", description: "Ganga Aarti and sightseeing in the spiritual capital.", meals: "B/L/D" },
+        { day: 13, title: "Baidyanath Jyotirlinga", description: "Visit Baidyanath Dham in Jharkhand.", meals: "B/L/D" },
+        { day: 14, title: "Travel Day", description: "Journey towards South India.", meals: "B/L/D" },
+        { day: 15, title: "Mallikarjuna Jyotirlinga", description: "Visit Srisailam in Andhra Pradesh.", meals: "B/L/D" },
+        { day: 16, title: "Rameshwaram Jyotirlinga", description: "Visit Rameshwaram, one of the Char Dhams.", meals: "B/L/D" },
+        { day: 17, title: "Rameshwaram Darshan", description: "Complete darshan and rituals.", meals: "B/L/D" },
+        { day: 18, title: "Travel Day", description: "Journey northward.", meals: "B/L/D" },
+        { day: 19, title: "Rest Day", description: "Rest and relaxation.", meals: "B/L/D" },
+        { day: 20, title: "Final Preparations", description: "Prepare for journey home.", meals: "B/L/D" },
+        { day: 21, title: "Departure", description: "Sacred journey concludes with divine blessings.", meals: "Breakfast" },
+      ],
+      requirements: [
+        "Valid ID proof",
+        "Physical fitness certificate for elderly",
+      ],
+      isActive: true,
+      isFeatured: true,
+      isPremium: false,
+      sortOrder: 3,
+    },
+    {
+      name: "108 Divya Desam Tour",
+      slug: "divya-desam",
+      shortDescription: "Visit the 108 sacred Vishnu temples sung by the Alvar saints across South India and Nepal.",
+      description: "The 108 Divya Desams are the most sacred Vishnu temples glorified by the 12 Alvar saints. These temples are primarily located in Tamil Nadu, with others in Kerala, Andhra Pradesh, and one in Nepal. This comprehensive tour takes you through all 108 temples in a spiritually enriching journey.",
+      duration: "45 Days",
+      category: "south-india",
+      highlights: ["108 Sacred Vishnu Temples", "All South Indian States", "Expert Vaishnavite Guides", "Traditional Rituals"],
+      pricePerPerson: 125000,
+      originalPrice: 145000,
+      imageUrl: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800",
+      inclusions: [
+        "AC bus transportation",
+        "Hotel/Dharamshala accommodation",
+        "All vegetarian South Indian meals",
+        "Expert Vaishnavite guide",
+        "All temple entry fees",
+        "Special puja arrangements",
+      ],
+      exclusions: [
+        "Personal expenses",
+        "Special offerings",
+        "Travel insurance",
+      ],
+      itinerary: [
+        { day: 1, title: "Begin from Chennai", description: "Start the 108 Divya Desam journey from Chennai. Visit temples in Chennai region.", meals: "B/L/D" },
+        { day: 2, title: "Kanchipuram Temples", description: "Visit Varadaraja Perumal and other Divya Desams in Kanchipuram.", meals: "B/L/D" },
+        { day: 3, title: "Tirumala Tirupati", description: "World-famous Tirumala Venkateswara Temple darshan.", meals: "B/L/D" },
+        { day: 4, title: "Srirangam", description: "Visit the largest temple complex - Sri Ranganathaswamy Temple.", meals: "B/L/D" },
+        { day: 5, title: "Madurai Region", description: "Visit Divya Desams in and around Madurai.", meals: "B/L/D" },
+      ],
+      requirements: [
+        "Valid ID proof",
+        "Physical stamina for extensive temple visits",
+        "Appropriate traditional attire for temple visits",
+      ],
+      isActive: true,
+      isFeatured: false,
+      isPremium: true,
+      sortOrder: 4,
+    },
+    {
+      name: "Adi Kailash & Om Parvat",
+      slug: "adi-kailash",
+      shortDescription: "Trek to Adi Kailash, also known as Chhota Kailash, and witness the sacred Om symbol on Om Parvat.",
+      description: "Adi Kailash, located in the Indian Himalayas near the Tibet border, is considered as sacred as Mount Kailash. The trek also includes a darshan of Om Parvat, where natural snow formation creates the sacred Om symbol. This is an excellent alternative for those unable to undertake the Tibet Kailash yatra.",
+      duration: "10 Days",
+      category: "himalayan",
+      highlights: ["Adi Kailash Darshan", "Om Parvat View", "Parvati Tal", "Jolingkong Lake", "Indian Himalayas"],
+      pricePerPerson: 38000,
+      originalPrice: 45000,
+      maxAltitude: "5,945m",
+      difficulty: "Moderate-Challenging",
+      imageUrl: "https://images.unsplash.com/photo-1486911278844-a81c5267e227?w=800",
+      inclusions: [
+        "Transportation from Delhi",
+        "All accommodations",
+        "All meals",
+        "Experienced guide",
+        "Inner Line Permit",
+        "First aid and medical support",
+      ],
+      exclusions: [
+        "Personal expenses",
+        "Personal trekking gear",
+        "Travel insurance",
+      ],
+      itinerary: [
+        { day: 1, title: "Delhi to Kathgodam", description: "Overnight train journey to Kathgodam.", meals: "Dinner" },
+        { day: 2, title: "Kathgodam to Dharchula", description: "Scenic drive through Kumaon hills.", distance: "285km", duration: "10 hours", meals: "B/L/D" },
+        { day: 3, title: "Dharchula to Tawaghat", description: "Drive along Kali River to Tawaghat.", distance: "30km", duration: "2 hours", meals: "B/L/D" },
+        { day: 4, title: "Tawaghat to Pangu", description: "Begin the trek through remote villages.", distance: "12km", duration: "6 hours", meals: "B/L/D" },
+        { day: 5, title: "Pangu to Nabi", description: "Trek through rhododendron forests.", distance: "14km", duration: "7 hours", meals: "B/L/D" },
+        { day: 6, title: "Nabi to Jolingkong", description: "Reach Jolingkong with Adi Kailash views.", distance: "10km", duration: "5 hours", meals: "B/L/D" },
+        { day: 7, title: "Adi Kailash Parikrama", description: "Complete the sacred Parikrama. Evening at Parvati Tal.", distance: "12km", duration: "6 hours", meals: "B/L/D" },
+        { day: 8, title: "Om Parvat Darshan", description: "Early morning darshan of Om Parvat. Return to Nabi.", distance: "20km", duration: "8 hours", meals: "B/L/D" },
+        { day: 9, title: "Nabi to Dharchula", description: "Complete return trek and drive.", meals: "B/L/D" },
+        { day: 10, title: "Dharchula to Delhi", description: "Return journey to Delhi. Tour ends.", meals: "Breakfast" },
+      ],
+      requirements: [
+        "Valid ID proof (Aadhar mandatory for Inner Line Permit)",
+        "Physical fitness certificate",
+        "Basic trekking experience recommended",
+      ],
+      isActive: true,
+      isFeatured: true,
+      isPremium: false,
+      sortOrder: 5,
+    },
+    {
+      name: "Panch Kedar Yatra",
+      slug: "panch-kedar",
+      shortDescription: "Visit the five sacred Shiva temples in the Garhwal Himalayas - Kedarnath, Tungnath, Rudranath, Madhyamaheshwar, and Kalpeshwar.",
+      description: "The Panch Kedar temples are five sacred Shiva temples located in the Garhwal region of Uttarakhand. According to legend, Lord Shiva took the form of a bull to hide from the Pandavas, and his body parts emerged at these five locations. This challenging trek covers all five temples in the majestic Himalayan landscape.",
+      duration: "14 Days",
+      category: "himalayan",
+      highlights: ["Five Sacred Shiva Temples", "High-Altitude Treks", "Chandrashila Peak", "Himalayan Meadows", "Spiritual Bliss"],
+      pricePerPerson: 55000,
+      originalPrice: 65000,
+      maxAltitude: "4,090m",
+      difficulty: "Challenging",
+      imageUrl: "https://images.unsplash.com/photo-1612438214708-f428a707dd4e?w=800",
+      inclusions: [
+        "Transportation from Rishikesh",
+        "All accommodations",
+        "All vegetarian meals",
+        "Experienced trek leader",
+        "Porters and ponies where needed",
+        "First aid and oxygen",
+      ],
+      exclusions: [
+        "Personal expenses",
+        "Personal trekking equipment",
+        "Travel insurance",
+        "Tips",
+      ],
+      itinerary: [
+        { day: 1, title: "Rishikesh to Guptkashi", description: "Drive from Rishikesh to Guptkashi base camp.", distance: "180km", duration: "7 hours", meals: "L/D" },
+        { day: 2, title: "Kedarnath Trek", description: "Trek to Kedarnath - the main temple of Panch Kedar.", distance: "18km", duration: "7 hours", meals: "B/L/D" },
+        { day: 3, title: "Kedarnath Darshan", description: "Morning darshan and return to Gaurikund.", meals: "B/L/D" },
+        { day: 4, title: "To Ukhimath", description: "Drive to Ukhimath for Madhyamaheshwar trek.", distance: "40km", duration: "3 hours", meals: "B/L/D" },
+        { day: 5, title: "Madhyamaheshwar Trek", description: "Trek to Madhyamaheshwar through alpine meadows.", distance: "24km", duration: "8 hours", meals: "B/L/D" },
+        { day: 6, title: "Madhyamaheshwar Darshan", description: "Morning puja and return trek.", meals: "B/L/D" },
+        { day: 7, title: "To Chopta", description: "Drive to Chopta, base for Tungnath.", distance: "60km", duration: "4 hours", meals: "B/L/D" },
+        { day: 8, title: "Tungnath & Chandrashila", description: "Trek to highest Shiva temple and Chandrashila peak.", distance: "8km", duration: "5 hours", meals: "B/L/D" },
+        { day: 9, title: "To Urgam Valley", description: "Drive towards Kalpeshwar.", meals: "B/L/D" },
+        { day: 10, title: "Kalpeshwar Darshan", description: "Easy trek to Kalpeshwar, open throughout the year.", distance: "4km", duration: "2 hours", meals: "B/L/D" },
+        { day: 11, title: "To Mandal", description: "Drive to Mandal, base for Rudranath.", meals: "B/L/D" },
+        { day: 12, title: "Rudranath Trek", description: "Challenging trek to Rudranath through forests.", distance: "20km", duration: "8 hours", meals: "B/L/D" },
+        { day: 13, title: "Rudranath Darshan", description: "Morning darshan and return trek.", meals: "B/L/D" },
+        { day: 14, title: "Return to Rishikesh", description: "Drive back to Rishikesh. Tour ends with blessings.", meals: "B" },
+      ],
+      requirements: [
+        "Excellent physical fitness required",
+        "Previous high-altitude trekking experience",
+        "Valid ID proof",
+        "Medical fitness certificate",
+      ],
+      isActive: true,
+      isFeatured: false,
+      isPremium: false,
+      sortOrder: 6,
+    },
+  ];
+
+  for (const tour of tourData) {
+    await db.insert(tours).values(tour).onConflictDoNothing();
+  }
+
+  console.log("Tours seeded");
+
+  const testimonialData = [
+    {
+      name: "Ramesh Kumar",
+      location: "Hyderabad",
+      rating: 5,
+      review: "The Kailash Manasarovar yatra with Sri Umadevi Tours was a life-changing experience. The arrangements were perfect, and our guide was extremely knowledgeable about the spiritual significance of every place we visited. Highly recommend!",
+      tourName: "Kailash Manasarovar Yatra",
+      year: "2024",
+      isApproved: true,
+      isFeatured: true,
+    },
+    {
+      name: "Lakshmi Devi",
+      location: "Secunderabad",
+      rating: 5,
+      review: "Did the Chardham Yatra with my family. Sri Umadevi Tours took care of everything - from transportation to accommodation. The spiritual experience was enhanced by their excellent service.",
+      tourName: "Chardham Yatra",
+      year: "2024",
+      isApproved: true,
+      isFeatured: true,
+    },
+    {
+      name: "Venkat Rao",
+      location: "Visakhapatnam",
+      rating: 5,
+      review: "Completed the 12 Jyotirlinga darshan with Sri Umadevi Tours. The journey was well-planned, and we got adequate time at each temple. A truly divine experience that I will cherish forever.",
+      tourName: "12 Jyotirlinga Darshan",
+      year: "2023",
+      isApproved: true,
+      isFeatured: true,
+    },
+    {
+      name: "Padma Shri",
+      location: "Bangalore",
+      rating: 5,
+      review: "The Adi Kailash trek was challenging but incredibly rewarding. The Om Parvat darshan at sunrise was magical. Sri Umadevi Tours ensured our safety and comfort throughout.",
+      tourName: "Adi Kailash & Om Parvat",
+      year: "2024",
+      isApproved: true,
+      isFeatured: true,
+    },
+    {
+      name: "Suresh Reddy",
+      location: "Warangal",
+      rating: 5,
+      review: "Third time doing yatra with Sri Umadevi Tours. Each time the experience gets better. Their attention to detail and spiritual knowledge makes them the best tour operator for pilgrimages.",
+      tourName: "Chardham Yatra",
+      year: "2024",
+      isApproved: true,
+      isFeatured: true,
+    },
+  ];
+
+  for (const testimonial of testimonialData) {
+    await db.insert(testimonials).values(testimonial).onConflictDoNothing();
+  }
+
+  console.log("Testimonials seeded");
+
+  const kailashTour = tourData.find(t => t.slug === "kailash-manasarovar");
+  if (kailashTour) {
+    const allTours = await db.select().from(tours);
+    const kailashId = allTours.find(t => t.slug === "kailash-manasarovar")?.id;
+    
+    if (kailashId) {
+      await db.insert(departures).values([
+        {
+          tourId: kailashId,
+          departureDate: new Date("2026-05-15"),
+          returnDate: new Date("2026-05-28"),
+          availableSeats: 25,
+          totalSeats: 30,
+          status: "upcoming",
+        },
+        {
+          tourId: kailashId,
+          departureDate: new Date("2026-06-05"),
+          returnDate: new Date("2026-06-18"),
+          availableSeats: 18,
+          totalSeats: 30,
+          status: "upcoming",
+        },
+        {
+          tourId: kailashId,
+          departureDate: new Date("2026-07-10"),
+          returnDate: new Date("2026-07-23"),
+          availableSeats: 30,
+          totalSeats: 30,
+          status: "upcoming",
+        },
+      ]).onConflictDoNothing();
+      
+      console.log("Departures seeded for Kailash Manasarovar");
+    }
+  }
+
+  console.log("Database seeding completed!");
+}
+
+seed().catch(console.error);
