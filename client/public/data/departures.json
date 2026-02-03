@@ -1,33 +1,4 @@
 {
-  "tirumala-package": [
-    {
-      "id": "tirumala-dep-1",
-      "tourId": "tirumala-package",
-      "departureDate": "2026-02-10T00:00:00Z",
-      "returnDate": "2026-02-10T00:00:00Z",
-      "availableSeats": 50,
-      "totalSeats": 50,
-      "status": "upcoming"
-    },
-    {
-      "id": "tirumala-dep-2",
-      "tourId": "tirumala-package",
-      "departureDate": "2026-02-20T00:00:00Z",
-      "returnDate": "2026-02-20T00:00:00Z",
-      "availableSeats": 50,
-      "totalSeats": 50,
-      "status": "upcoming"
-    },
-    {
-      "id": "tirumala-dep-3",
-      "tourId": "tirumala-package",
-      "departureDate": "2026-03-10T00:00:00Z",
-      "returnDate": "2026-03-10T00:00:00Z",
-      "availableSeats": 50,
-      "totalSeats": 50,
-      "status": "upcoming"
-    }
-  ],
   "kailash-manasarovar": [
     {
       "id": "kailash-dep-1",

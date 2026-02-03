@@ -44,7 +44,7 @@ const bookingSchema = z.object({
     .number()
     .min(1, "At least 1 traveler")
     .max(20, "Maximum 20 travelers"),
-  departureId: z.string().min(1, "Please select a departure date"),
+  departureId: z.string().optional().default(""),
   paymentType: z.enum(["full", "deposit"], {
     errorMap: () => ({ message: "Select payment type" }),
   }),
@@ -90,18 +90,25 @@ export function BookingCheckout({
 
   const numberOfTravelers = form.watch("numberOfTravelers");
   const paymentType = form.watch("paymentType");
-  const selectedDeparture = departures.find(
-    (d) => d.id === form.watch("departureId")
-  );
+  const departureId = form.watch("departureId");
+  const selectedDeparture = departureId ? departures.find((d) => d.id === departureId) : null;
 
   const totalAmount = tour.pricePerPerson * numberOfTravelers;
-  // Deposit is 10% of total amount
-  const depositAmount = Math.ceil(totalAmount * 0.1);
+
+  // Fixed deposit for Chardham Yatra (≥21), percentage for others
+  let depositAmount = 0;
+  if (tour.slug === "chardham-yatra") {
+    depositAmount = 25; // Fixed ₹25 deposit for Chardham Yatra
+  } else {
+    depositAmount = Math.ceil(totalAmount * 0.1); // 10% for other tours
+  }
+
   const paymentAmount = paymentType === "deposit" ? depositAmount : totalAmount;
 
   async function onSubmit(data: BookingFormData) {
-    if (!selectedDeparture) {
-      setErrorMessage("Please select a departure date");
+    // For full payment, departure date is required
+    if (paymentType === "full" && !selectedDeparture) {
+      setErrorMessage("Please select a departure date for full payment");
       return;
     }
 
@@ -122,8 +129,8 @@ export function BookingCheckout({
           customerPhone: data.customerPhone,
           customerName: data.customerName,
           tourId: tour.id,
-          departureId: selectedDeparture.id,
-          numberOfTravelers: data.numberOfTravelers,
+          departureId: selectedDeparture?.id || null,
+          numberOfTravelers: paymentType === "full" ? data.numberOfTravelers : 1,
           totalAmount: totalAmount,
           paymentType: data.paymentType,
           specialRequests: data.specialRequests || "",
@@ -157,8 +164,8 @@ export function BookingCheckout({
                     razorpaySignature: response.razorpay_signature,
                     customerEmail: data.customerEmail,
                     tourId: tour.id,
-                    departureId: selectedDeparture.id,
-                    numberOfTravelers: data.numberOfTravelers,
+                    departureId: selectedDeparture?.id || null,
+                    numberOfTravelers: paymentType === "full" ? data.numberOfTravelers : 1,
                     totalAmount: totalAmount,
                     paidAmount: paymentAmount,
                     paymentType: data.paymentType,
@@ -301,57 +308,63 @@ export function BookingCheckout({
             <div className="space-y-4">
               <h4 className="font-semibold text-lg">Trip Details</h4>
 
-              <FormField
-                control={form.control}
-                name="numberOfTravelers"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Number of Travelers</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        min="1"
-                        max="20"
-                        {...field}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              {paymentType === "full" && (
+                <FormField
+                  control={form.control}
+                  name="numberOfTravelers"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Number of Travelers *</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          min="1"
+                          max="20"
+                          {...field}
+                          onChange={(e) => field.onChange(Number(e.target.value))}
+                          required
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )}
 
-              <FormField
-                control={form.control}
-                name="departureId"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Departure Date</FormLabel>
-                    <FormControl>
-                      <select
-                        {...field}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="">Select a departure date</option>
-                        {departures.map((dep) => (
-                          <option key={dep.id} value={dep.id}>
-                            {new Date(dep.departureDate).toLocaleDateString(
-                              "en-IN",
-                              {
-                                day: "numeric",
-                                month: "short",
-                                year: "numeric",
-                              }
-                            )}{" "}
-                            ({dep.availableSeats} seats available)
-                          </option>
-                        ))}
-                      </select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              {paymentType === "full" && (
+                <FormField
+                  control={form.control}
+                  name="departureId"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Departure Date *</FormLabel>
+                      <FormControl>
+                        <select
+                          {...field}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          required
+                        >
+                          <option value="">Select a departure date</option>
+                          {departures.map((dep) => (
+                            <option key={dep.id} value={dep.id}>
+                              {new Date(dep.departureDate).toLocaleDateString(
+                                "en-IN",
+                                {
+                                  day: "numeric",
+                                  month: "short",
+                                  year: "numeric",
+                                }
+                              )}{" "}
+                              ({dep.availableSeats} seats available)
+                            </option>
+                          ))}
+                        </select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )}
 
               <FormField
                 control={form.control}

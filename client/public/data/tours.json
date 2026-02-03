@@ -315,32 +315,4 @@
     "isPremium": false,
     "sortOrder": 6
   },
-  {
-    "id": "tirumala-package",
-    "name": "Tirumala Package",
-    "slug": "tirumala-package",
-    "shortDescription": "Test tour package for payment testing. 10% deposit = ₹10.",
-    "description": "This is a test tour package created for payment system testing. The price is set to ₹100 per person, which means a 10% deposit equals ₹10 - perfect for testing the Razorpay payment integration without spending much.",
-    "duration": "1 Day",
-    "category": "test",
-    "highlights": ["Payment Testing", "Test Tour", "Quick Visit"],
-    "pricePerPerson": 100,
-    "originalPrice": 100,
-    "difficulty": "Easy",
-    "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
-    "inclusions": [
-      "Basic service"
-    ],
-    "exclusions": [
-      "Any additional services"
-    ],
-    "itinerary": [
-      { "day": 1, "title": "Test Package", "description": "This is a test package for payment integration testing.", "meals": "None" }
-    ],
-    "requirements": [],
-    "isActive": true,
-    "isFeatured": false,
-    "isPremium": false,
-    "sortOrder": 7
-  }
 ]
