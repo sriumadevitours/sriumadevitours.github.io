@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { storage } from "./_lib/storage";
+import { storage } from "../_lib/storage";
 import Razorpay from "razorpay";
 
 const razorpay = new Razorpay({
