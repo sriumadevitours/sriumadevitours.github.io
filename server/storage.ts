@@ -8,6 +8,7 @@ import {
   admins, Admin, InsertAdmin,
   bookings, Booking, InsertBooking,
   users, User, InsertUser,
+  payments, Payment, InsertPayment,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -43,6 +44,13 @@ export interface IStorage {
   getBookings(): Promise<Booking[]>;
   createBooking(booking: InsertBooking): Promise<Booking>;
   updateBooking(id: string, booking: Partial<InsertBooking>): Promise<Booking | undefined>;
+  getBookingById(id: string): Promise<Booking | undefined>;
+
+  getPayments(): Promise<Payment[]>;
+  getPaymentById(id: string): Promise<Payment | undefined>;
+  getPaymentByRazorpayOrderId(orderId: string): Promise<Payment | undefined>;
+  createPayment(payment: InsertPayment): Promise<Payment>;
+  updatePayment(id: string, payment: Partial<InsertPayment>): Promise<Payment | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -177,6 +185,39 @@ export class DatabaseStorage implements IStorage {
       .where(eq(bookings.id, id))
       .returning();
     return booking;
+  }
+
+  async getBookingById(id: string): Promise<Booking | undefined> {
+    const [booking] = await db.select().from(bookings).where(eq(bookings.id, id));
+    return booking;
+  }
+
+  async getPayments(): Promise<Payment[]> {
+    return db.select().from(payments).orderBy(desc(payments.createdAt));
+  }
+
+  async getPaymentById(id: string): Promise<Payment | undefined> {
+    const [payment] = await db.select().from(payments).where(eq(payments.id, id));
+    return payment;
+  }
+
+  async getPaymentByRazorpayOrderId(orderId: string): Promise<Payment | undefined> {
+    const [payment] = await db.select().from(payments).where(eq(payments.razorpayOrderId, orderId));
+    return payment;
+  }
+
+  async createPayment(payment: InsertPayment): Promise<Payment> {
+    const [newPayment] = await db.insert(payments).values(payment).returning();
+    return newPayment;
+  }
+
+  async updatePayment(id: string, paymentData: Partial<InsertPayment>): Promise<Payment | undefined> {
+    const [payment] = await db
+      .update(payments)
+      .set({ ...paymentData, updatedAt: new Date() })
+      .where(eq(payments.id, id))
+      .returning();
+    return payment;
   }
 }
 

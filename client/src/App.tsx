@@ -10,6 +10,8 @@ import Tours from "@/pages/Tours";
 import TourDetail from "@/pages/TourDetail";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import Checkout from "@/pages/Checkout";
+import BookingConfirmation from "@/pages/BookingConfirmation";
 import NotFound from "@/pages/not-found";
 
 function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -48,6 +50,16 @@ function Router() {
       <Route path="/contact">
         <PublicLayout>
           <Contact />
+        </PublicLayout>
+      </Route>
+      <Route path="/checkout">
+        <PublicLayout>
+          <Checkout />
+        </PublicLayout>
+      </Route>
+      <Route path="/booking-confirmation">
+        <PublicLayout>
+          <BookingConfirmation />
         </PublicLayout>
       </Route>
       <Route>
