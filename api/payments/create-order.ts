@@ -16,13 +16,12 @@ export default async function handler(
   }
 
   try {
-    const { amount, customerEmail, customerPhone, bookingId, tourName } =
-      req.body;
+    const { amount, customerEmail, customerPhone, customerName } = req.body;
 
     if (!amount || !customerEmail || !customerPhone) {
       return res
         .status(400)
-        .json({ message: "Missing required fields" });
+        .json({ message: "Missing required fields: amount, customerEmail, customerPhone" });
     }
 
     // Amount should be in paise (multiply by 100)
@@ -33,8 +32,7 @@ export default async function handler(
       currency: "INR",
       receipt: `receipt_${Date.now()}`,
       notes: {
-        bookingId,
-        tourName,
+        customerName,
         customerEmail,
         customerPhone,
       },
@@ -49,9 +47,8 @@ export default async function handler(
       customerPhone,
       status: "pending",
       notes: {
-        bookingId,
-        tourName,
-      },
+        customerName,
+      } as any,
     });
 
     res.status(200).json({
@@ -62,6 +59,7 @@ export default async function handler(
     });
   } catch (error) {
     console.error("Order creation failed:", error);
-    res.status(500).json({ message: "Failed to create order" });
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    res.status(500).json({ message: `Failed to create order: ${errorMessage}` });
   }
 }
