@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { storage } from "../_lib/storage";
 import crypto from "crypto";
+import { randomUUID } from "crypto";
 
 export default async function handler(
   req: VercelRequest,
@@ -11,8 +11,7 @@ export default async function handler(
   }
 
   try {
-    const { razorpayOrderId, razorpayPaymentId, razorpaySignature, bookingId } =
-      req.body;
+    const { razorpayOrderId, razorpayPaymentId, razorpaySignature } = req.body;
 
     if (!razorpayOrderId || !razorpayPaymentId || !razorpaySignature) {
       return res
@@ -31,32 +30,23 @@ export default async function handler(
       return res.status(400).json({ message: "Invalid payment signature" });
     }
 
-    // Update payment record
-    const payment = await storage.getPaymentByRazorpayOrderId(razorpayOrderId);
-    if (!payment) {
-      return res.status(404).json({ message: "Payment record not found" });
-    }
+    // Generate a temporary booking ID for testing
+    const tempBookingId = randomUUID();
 
-    const updatedPayment = await storage.updatePayment(payment.id, {
-      razorpayPaymentId,
-      razorpaySignature,
-      status: "captured",
-    });
-
-    // Update booking status if bookingId exists
-    if (bookingId) {
-      await storage.updateBooking(bookingId, {
-        paymentStatus: "completed",
-        paidAmount: payment.amount / 100, // Convert back to rupees
-      });
-    }
+    console.log("=== Payment Verified ===");
+    console.log("Order ID:", razorpayOrderId);
+    console.log("Payment ID:", razorpayPaymentId);
+    console.log("Booking ID:", tempBookingId);
 
     res.status(200).json({
       message: "Payment verified successfully",
-      payment: updatedPayment,
+      bookingId: tempBookingId,
+      razorpayOrderId,
+      razorpayPaymentId,
     });
   } catch (error) {
     console.error("Payment verification failed:", error);
-    res.status(500).json({ message: "Payment verification failed" });
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    res.status(500).json({ message: `Payment verification failed: ${errorMessage}` });
   }
 }
