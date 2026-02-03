@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { InquiryForm } from "@/components/InquiryForm";
+import { BookingCheckout } from "@/components/BookingCheckout";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Clock,
@@ -19,12 +21,22 @@ import {
   FileText,
   AlertCircle,
   Star,
+  CreditCard,
+  HelpCircle,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import type { Tour } from "@shared/types";
 
+interface Departure {
+  id: string;
+  departureDate: string;
+  returnDate: string;
+  availableSeats: number;
+}
+
 export default function TourDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const [showCheckout, setShowCheckout] = useState(false);
 
   // Fetch all tours and filter by slug for static site
   const { data: tours, isLoading } = useQuery<Tour[]>({
@@ -32,6 +44,12 @@ export default function TourDetail() {
   });
 
   const tour = tours?.find(t => t.slug === slug);
+
+  // Fetch departures for the tour
+  const { data: departures = [] } = useQuery<Departure[]>({
+    queryKey: [`/api/tours/${slug}/departures`],
+    enabled: !!slug && !!tour,
+  });
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-IN", {
@@ -300,48 +318,79 @@ export default function TourDetail() {
           </div>
 
           <div className="space-y-6">
-            <Card className="sticky top-24">
-              <CardContent className="p-6">
-                <div className="mb-6">
-                  <p className="text-sm text-muted-foreground">Starting from</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-primary">
-                      {formatPrice(tour.pricePerPerson)}
-                    </span>
-                    {tour.originalPrice && tour.originalPrice > tour.pricePerPerson && (
-                      <span className="text-lg text-muted-foreground line-through">
-                        {formatPrice(tour.originalPrice)}
+            {!showCheckout ? (
+              <Card className="sticky top-24">
+                <CardContent className="p-6">
+                  <div className="mb-6">
+                    <p className="text-sm text-muted-foreground">Starting from</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">
+                        {formatPrice(tour.pricePerPerson)}
                       </span>
-                    )}
+                      {tour.originalPrice && tour.originalPrice > tour.pricePerPerson && (
+                        <span className="text-lg text-muted-foreground line-through">
+                          {formatPrice(tour.originalPrice)}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground">per person</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">per person</p>
-                </div>
 
-                <Separator className="my-6" />
+                  <Separator className="my-6" />
 
-                <InquiryForm selectedTour={tour} variant="inline" />
-
-                <div className="mt-6 pt-6 border-t space-y-3">
-                  <a
-                    href={`https://wa.me/919581608979?text=Hi, I'm interested in ${tour.name}. Please share more details.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <Button variant="outline" className="w-full gap-2" data-testid="button-whatsapp-tour">
-                      <SiWhatsapp className="h-4 w-4 text-green-600" />
-                      WhatsApp Inquiry
+                  <div className="space-y-3 mb-6">
+                    <Button
+                      onClick={() => setShowCheckout(true)}
+                      className="w-full h-12 text-base gap-2"
+                      data-testid="button-book-now"
+                    >
+                      <CreditCard className="h-5 w-5" />
+                      Book Now with Deposit
                     </Button>
-                  </a>
-                  <a href="tel:+919581608979" className="block">
-                    <Button variant="ghost" className="w-full gap-2" data-testid="button-call-tour">
-                      <Phone className="h-4 w-4" />
-                      +91 95816 08979
-                    </Button>
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+                    <p className="text-xs text-gray-600 text-center">
+                      Pay 50% deposit to confirm booking
+                    </p>
+                  </div>
+
+                  <Separator className="my-6" />
+
+                  <InquiryForm selectedTour={tour} variant="inline" />
+
+                  <div className="mt-6 pt-6 border-t space-y-3">
+                    <a
+                      href={`https://wa.me/919581608979?text=Hi, I'm interested in ${tour.name}. Please share more details.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full"
+                    >
+                      <Button variant="outline" className="w-full gap-2" data-testid="button-whatsapp-tour">
+                        <SiWhatsapp className="h-4 w-4 text-green-600" />
+                        WhatsApp Inquiry
+                      </Button>
+                    </a>
+                    <a href="tel:+919581608979" className="block">
+                      <Button variant="ghost" className="w-full gap-2" data-testid="button-call-tour">
+                        <Phone className="h-4 w-4" />
+                        +91 95816 08979
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="sticky top-24 space-y-4">
+                <Button
+                  variant="outline"
+                  className="w-full gap-2"
+                  onClick={() => setShowCheckout(false)}
+                  data-testid="button-back-to-info"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  Back to Tour Info
+                </Button>
+                <BookingCheckout tour={tour} departures={departures} />
+              </div>
+            )}
           </div>
         </div>
       </div>

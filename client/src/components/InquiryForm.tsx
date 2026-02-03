@@ -218,7 +218,7 @@ export function InquiryForm({ selectedTour, variant = "card" }: InquiryFormProps
 
             {/* Email */}
             <a
-              href={`mailto:sriumadevitravels1@gmail.com?subject=${encodeURIComponent(
+              href={`mailto:sriumadevitours@gmail.com?subject=${encodeURIComponent(
                 selectedTour ? `Inquiry: ${selectedTour.name}` : "Tour Inquiry"
               )}`}
               className="block"
@@ -228,7 +228,7 @@ export function InquiryForm({ selectedTour, variant = "card" }: InquiryFormProps
                 className="w-full gap-2 h-11 text-sm"
               >
                 <Mail className="h-4 w-4" />
-                sriumadevitravels1@gmail.com
+                sriumadevitours@gmail.com
               </Button>
             </a>
           </div>
