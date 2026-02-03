@@ -98,7 +98,7 @@ export function BookingCheckout({
   // Fixed deposit for Chardham Yatra (≥21), percentage for others
   let depositAmount = 0;
   if (tour.slug === "chardham-yatra") {
-    depositAmount = 25; // Fixed ₹25 deposit for Chardham Yatra
+    depositAmount = 1; // Fixed ₹1 deposit for testing
   } else {
     depositAmount = Math.ceil(totalAmount * 0.1); // 10% for other tours
   }
