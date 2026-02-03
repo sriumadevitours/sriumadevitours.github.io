@@ -95,8 +95,8 @@ export function BookingCheckout({
   );
 
   const totalAmount = tour.pricePerPerson * numberOfTravelers;
-  // Deposit is 50% of total amount
-  const depositAmount = Math.ceil(totalAmount / 2);
+  // Deposit is 10% of total amount
+  const depositAmount = Math.ceil(totalAmount * 0.1);
   const paymentAmount = paymentType === "deposit" ? depositAmount : totalAmount;
 
   async function onSubmit(data: BookingFormData) {
@@ -391,7 +391,7 @@ export function BookingCheckout({
                             className="flex-1 cursor-pointer"
                           >
                             <div className="font-semibold">
-                              Pay Deposit (50%)
+                              Pay Deposit (10%)
                             </div>
                             <div className="text-sm text-gray-600">
                               Pay ₹{depositAmount.toLocaleString("en-IN")} now to
@@ -441,7 +441,7 @@ export function BookingCheckout({
                 {paymentType === "deposit" && (
                   <div className="bg-white rounded p-2 flex justify-between">
                     <span className="text-gray-600 text-sm">
-                      You pay now (50%):
+                      You pay now (10%):
                     </span>
                     <span className="font-bold text-lg text-blue-600">
                       ₹{depositAmount.toLocaleString("en-IN")}

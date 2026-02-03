@@ -38,7 +38,7 @@ export default function BookingConfirmation() {
                 <p className="text-sm text-gray-600">Payment Type</p>
                 <p className="font-semibold capitalize">
                   {paymentType === "deposit"
-                    ? "Deposit Payment (50%)"
+                    ? "Deposit Payment (10%)"
                     : "Full Payment"}
                 </p>
               </div>
@@ -53,7 +53,7 @@ export default function BookingConfirmation() {
             </p>
             {paymentType === "deposit" && (
               <div className="bg-amber-50 p-3 rounded text-sm text-amber-800 border border-amber-200">
-                <p className="font-semibold mb-2">50% Deposit Paid</p>
+                <p className="font-semibold mb-2">10% Deposit Paid</p>
                 <p>
                   Pay remaining balance 7 days before your departure date.
                 </p>

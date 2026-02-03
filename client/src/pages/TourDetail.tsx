@@ -348,7 +348,7 @@ export default function TourDetail() {
                       Book Now with Deposit
                     </Button>
                     <p className="text-xs text-gray-600 text-center">
-                      Pay 50% deposit to confirm booking
+                      Pay 10% deposit to confirm booking
                     </p>
                   </div>
 
