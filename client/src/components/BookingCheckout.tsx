@@ -464,13 +464,13 @@ export function BookingCheckout({
                   Processing...
                 </>
               ) : (
-                `Pay ₹${paymentAmount.toLocaleString("en-IN")} with Razorpay`
+                `Pay ₹${paymentAmount.toLocaleString("en-IN")}`
               )}
             </Button>
 
             <p className="text-xs text-gray-500 text-center">
               By clicking pay, you agree to our terms and conditions.
-              Secure payment powered by Razorpay.
+              Your payment is secure and encrypted.
             </p>
           </form>
         </Form>

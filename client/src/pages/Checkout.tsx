@@ -359,7 +359,7 @@ export default function Checkout() {
 
                 <div className="bg-blue-50 border border-blue-200 rounded-md p-3">
                   <p className="text-xs text-blue-700">
-                    ✓ Secure payment via Razorpay
+                    ✓ Secure encrypted payment
                     <br />✓ Instant booking confirmation
                     <br />✓ 24/7 customer support
                   </p>
