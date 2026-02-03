@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm ci --prefer-offline --no-audit",
+  "installCommand": "npm install --prefer-offline --no-audit --legacy-peer-deps",
   "outputDirectory": "dist",
   "headers": [
     {
