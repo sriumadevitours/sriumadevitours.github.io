@@ -55,7 +55,7 @@ export default async function handler(
     });
 
     res.status(200).json({
-      orderId: order.id,
+      id: order.id,
       amount: amountInPaise,
       currency: "INR",
       paymentId: payment.id,
