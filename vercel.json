@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install --prefer-offline --no-audit --legacy-peer-deps",
+  "installCommand": "npm install --legacy-peer-deps",
   "outputDirectory": "dist",
   "headers": [
     {
