@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
-    "build:static": "npx vite build",
+    "build": "vite build",
+    "build:static": "vite build",
     "preview": "vite preview",
     "check": "tsc",
     "start": "tsx server/index.ts"
