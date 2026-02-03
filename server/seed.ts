@@ -327,6 +327,32 @@ async function seed() {
       isPremium: false,
       sortOrder: 6,
     },
+    {
+      name: "Tirumala Package",
+      slug: "tirumala-package",
+      shortDescription: "Test tour package for payment testing. 10% deposit = ₹10.",
+      description: "This is a test tour package created for payment system testing. The price is set to ₹100 per person, which means a 10% deposit equals ₹10 - perfect for testing the Razorpay payment integration without spending much.",
+      duration: "1 Day",
+      category: "test",
+      highlights: ["Payment Testing", "Test Tour", "Quick Visit"],
+      pricePerPerson: 100,
+      originalPrice: 100,
+      difficulty: "Easy",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      inclusions: [
+        "Basic service",
+      ],
+      exclusions: [
+        "Any additional services",
+      ],
+      itinerary: [
+        { day: 1, title: "Test Package", description: "This is a test package for payment integration testing.", meals: "None" },
+      ],
+      isActive: true,
+      isFeatured: false,
+      isPremium: false,
+      sortOrder: 7,
+    },
   ];
 
   for (const tour of tourData) {
@@ -394,41 +420,70 @@ async function seed() {
 
   console.log("Testimonials seeded");
 
-  const kailashTour = tourData.find(t => t.slug === "kailash-manasarovar");
-  if (kailashTour) {
-    const allTours = await db.select().from(tours);
-    const kailashId = allTours.find(t => t.slug === "kailash-manasarovar")?.id;
-    
-    if (kailashId) {
-      await db.insert(departures).values([
-        {
-          tourId: kailashId,
-          departureDate: new Date("2026-05-15"),
-          returnDate: new Date("2026-05-28"),
-          availableSeats: 25,
-          totalSeats: 30,
-          status: "upcoming",
-        },
-        {
-          tourId: kailashId,
-          departureDate: new Date("2026-06-05"),
-          returnDate: new Date("2026-06-18"),
-          availableSeats: 18,
-          totalSeats: 30,
-          status: "upcoming",
-        },
-        {
-          tourId: kailashId,
-          departureDate: new Date("2026-07-10"),
-          returnDate: new Date("2026-07-23"),
-          availableSeats: 30,
-          totalSeats: 30,
-          status: "upcoming",
-        },
-      ]).onConflictDoNothing();
-      
-      console.log("Departures seeded for Kailash Manasarovar");
-    }
+  const allTours = await db.select().from(tours);
+
+  const kailashId = allTours.find(t => t.slug === "kailash-manasarovar")?.id;
+  if (kailashId) {
+    await db.insert(departures).values([
+      {
+        tourId: kailashId,
+        departureDate: new Date("2026-05-15"),
+        returnDate: new Date("2026-05-28"),
+        availableSeats: 25,
+        totalSeats: 30,
+        status: "upcoming",
+      },
+      {
+        tourId: kailashId,
+        departureDate: new Date("2026-06-05"),
+        returnDate: new Date("2026-06-18"),
+        availableSeats: 18,
+        totalSeats: 30,
+        status: "upcoming",
+      },
+      {
+        tourId: kailashId,
+        departureDate: new Date("2026-07-10"),
+        returnDate: new Date("2026-07-23"),
+        availableSeats: 30,
+        totalSeats: 30,
+        status: "upcoming",
+      },
+    ]).onConflictDoNothing();
+
+    console.log("Departures seeded for Kailash Manasarovar");
+  }
+
+  const tirumalaId = allTours.find(t => t.slug === "tirumala-package")?.id;
+  if (tirumalaId) {
+    await db.insert(departures).values([
+      {
+        tourId: tirumalaId,
+        departureDate: new Date("2026-02-10"),
+        returnDate: new Date("2026-02-10"),
+        availableSeats: 50,
+        totalSeats: 50,
+        status: "upcoming",
+      },
+      {
+        tourId: tirumalaId,
+        departureDate: new Date("2026-02-20"),
+        returnDate: new Date("2026-02-20"),
+        availableSeats: 50,
+        totalSeats: 50,
+        status: "upcoming",
+      },
+      {
+        tourId: tirumalaId,
+        departureDate: new Date("2026-03-10"),
+        returnDate: new Date("2026-03-10"),
+        availableSeats: 50,
+        totalSeats: 50,
+        status: "upcoming",
+      },
+    ]).onConflictDoNothing();
+
+    console.log("Departures seeded for Tirumala Package");
   }
 
   console.log("Database seeding completed!");
