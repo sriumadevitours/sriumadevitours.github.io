@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { storage } from "../_lib/storage";
 import Razorpay from "razorpay";
+import { randomUUID } from "crypto";
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID || "",
@@ -23,7 +23,6 @@ export default async function handler(
     console.log("Customer:", customerName, customerEmail, customerPhone);
     console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID ? "Set" : "NOT SET");
     console.log("Razorpay Secret:", process.env.RAZORPAY_KEY_SECRET ? "Set" : "NOT SET");
-    console.log("Database URL:", process.env.DATABASE_URL ? "Set" : "NOT SET");
 
     if (!amount || !customerEmail || !customerPhone) {
       return res
@@ -34,7 +33,7 @@ export default async function handler(
     // Amount should be in paise (multiply by 100)
     const amountInPaise = Math.round(amount * 100);
 
-    // Step 1: Create Razorpay order
+    // Create Razorpay order
     console.log("Creating Razorpay order...");
     const order = await razorpay.orders.create({
       amount: amountInPaise,
@@ -48,27 +47,15 @@ export default async function handler(
     });
     console.log("Razorpay order created:", order.id);
 
-    // Step 2: Save payment record to database
-    console.log("Saving payment to database...");
-    const payment = await storage.createPayment({
-      razorpayOrderId: order.id,
-      amount: amountInPaise,
-      currency: "INR",
-      customerEmail,
-      customerPhone,
-      status: "pending",
-      notes: {
-        customerName,
-      } as any,
-    });
-    console.log("Payment saved with ID:", payment.id);
+    // Generate a temporary payment ID for testing
+    const tempPaymentId = randomUUID();
 
     console.log("=== Payment Success ===");
     res.status(200).json({
       id: order.id,
       amount: amountInPaise,
       currency: "INR",
-      paymentId: payment.id,
+      paymentId: tempPaymentId,
     });
   } catch (error) {
     console.error("=== Order Creation Failed ===");
