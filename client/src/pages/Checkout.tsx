@@ -1,3 +1,5 @@
+// Razorpay Payment Checkout - Integrated with Supabase + Vercel
+// Payment flow: Create booking → Create Razorpay order → Verify signature → Confirm
 import { useState, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
