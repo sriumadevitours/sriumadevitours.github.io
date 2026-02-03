@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "npm exec vite -- build",
-    "build:static": "npm exec vite -- build",
+    "build": "./node_modules/.bin/vite build",
+    "build:static": "./node_modules/.bin/vite build",
     "preview": "vite preview",
     "check": "tsc",
     "start": "tsx server/index.ts"
