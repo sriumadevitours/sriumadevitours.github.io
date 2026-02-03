@@ -100,7 +100,7 @@ export function BookingCheckout({
   if (tour.slug === "chardham-yatra") {
     depositAmount = 1; // Fixed ₹1 deposit for testing
   } else {
-    depositAmount = Math.ceil(totalAmount * 0.1); // 10% for other tours
+    depositAmount = Math.ceil(totalAmount * 0.25); // 25% for other tours
   }
 
   const paymentAmount = paymentType === "deposit" ? depositAmount : totalAmount;
@@ -404,7 +404,7 @@ export function BookingCheckout({
                             className="flex-1 cursor-pointer"
                           >
                             <div className="font-semibold">
-                              Pay Deposit (10%)
+                              Pay Deposit (25%)
                             </div>
                             <div className="text-sm text-gray-600">
                               Pay ₹{depositAmount.toLocaleString("en-IN")} now to
