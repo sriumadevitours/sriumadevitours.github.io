@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { storage } from "../../server/storage";
+import { storage } from "@server/storage";
 import crypto from "crypto";
 
 export default async function handler(
