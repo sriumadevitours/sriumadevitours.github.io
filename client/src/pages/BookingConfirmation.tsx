@@ -83,18 +83,24 @@ export default function BookingConfirmation() {
         {/* Contact Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Card className="p-4 hover:shadow-lg transition-shadow">
-            <a
-              href="mailto:sriumadevitours@gmail.com"
-              className="flex items-center gap-3"
-            >
-              <Mail className="w-6 h-6 text-blue-600 flex-shrink-0" />
-              <div>
-                <p className="text-sm text-gray-600">Email Us</p>
-                <p className="font-semibold text-sm">
+            <div className="flex items-start gap-3">
+              <Mail className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <p className="text-sm text-gray-600 mb-2">Email Us</p>
+                <a
+                  href="mailto:sriumadevitours@gmail.com"
+                  className="font-semibold text-sm hover:text-blue-600 block"
+                >
                   sriumadevitours@gmail.com
-                </p>
+                </a>
+                <a
+                  href="mailto:sriumadevitravels1@gmail.com"
+                  className="text-xs text-gray-600 hover:text-blue-600"
+                >
+                  sriumadevitravels1@gmail.com
+                </a>
               </div>
-            </a>
+            </div>
           </Card>
 
           <Card className="p-4 hover:shadow-lg transition-shadow">

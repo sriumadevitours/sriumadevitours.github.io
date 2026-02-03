@@ -53,14 +53,18 @@ export function Footer() {
                 <SiFacebook className="h-5 w-5 text-blue-600" />
               </a>
               <a
-                href="#"
+                href="https://instagram.com/sriumadevitours"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-md bg-muted hover-elevate"
                 data-testid="footer-link-instagram"
               >
                 <SiInstagram className="h-5 w-5 text-pink-600" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@sriumadevitours"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-md bg-muted hover-elevate"
                 data-testid="footer-link-youtube"
               >
@@ -126,12 +130,20 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <a
-                  href="mailto:sriumadevitravels1@gmail.com"
-                  className="text-sm text-muted-foreground hover:text-primary"
-                >
-                  sriumadevitravels1@gmail.com
-                </a>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <a
+                    href="mailto:sriumadevitours@gmail.com"
+                    className="hover:text-primary block"
+                  >
+                    sriumadevitours@gmail.com
+                  </a>
+                  <a
+                    href="mailto:sriumadevitravels1@gmail.com"
+                    className="hover:text-primary block"
+                  >
+                    sriumadevitravels1@gmail.com
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary flex-shrink-0" />
