@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { AlertCircle, Loader2, CheckCircle2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 interface Tour {
   id: string;
@@ -71,6 +72,7 @@ export function BookingCheckout({
   departures,
   onSuccess,
 }: BookingCheckoutProps) {
+  const { currency, convertInrToUsd, formatPrice } = useCurrency();
   const [isLoading, setIsLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<"idle" | "processing" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -93,11 +95,12 @@ export function BookingCheckout({
   const departureId = form.watch("departureId");
   const selectedDeparture = departureId ? departures.find((d) => d.id === departureId) : null;
 
-  const totalAmount = tour.pricePerPerson * numberOfTravelers;
+  const totalAmountInr = tour.pricePerPerson * numberOfTravelers;
+  const depositAmountInr = Math.ceil(totalAmountInr * 0.25); // 25% for all tours
 
-  // 25% deposit for all tours
-  const depositAmount = Math.ceil(totalAmount * 0.25); // 25% for all tours
-
+  // Convert to USD if needed
+  const totalAmount = currency === "USD" ? convertInrToUsd(totalAmountInr) : totalAmountInr;
+  const depositAmount = currency === "USD" ? convertInrToUsd(depositAmountInr) : depositAmountInr;
   const paymentAmount = paymentType === "deposit" ? depositAmount : totalAmount;
 
   async function onSubmit(data: BookingFormData) {
@@ -402,7 +405,7 @@ export function BookingCheckout({
                               Pay Deposit (25%)
                             </div>
                             <div className="text-sm text-gray-600">
-                              Pay ₹{depositAmount.toLocaleString("en-IN")} now to
+                              Pay {formatPrice(Math.round(depositAmount))} now to
                               confirm booking. Pay remaining on the trip.
                             </div>
                           </Label>
@@ -433,7 +436,13 @@ export function BookingCheckout({
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Price per person:</span>
                   <span className="font-semibold">
-                    ₹{tour.pricePerPerson.toLocaleString("en-IN")}
+                    {formatPrice(
+                      Math.round(
+                        currency === "USD"
+                          ? convertInrToUsd(tour.pricePerPerson)
+                          : tour.pricePerPerson
+                      )
+                    )}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
@@ -443,16 +452,16 @@ export function BookingCheckout({
                 <div className="border-t border-blue-200 pt-3 flex justify-between">
                   <span className="text-gray-600">Total Amount:</span>
                   <span className="font-bold text-lg">
-                    ₹{totalAmount.toLocaleString("en-IN")}
+                    {formatPrice(Math.round(totalAmount))}
                   </span>
                 </div>
                 {paymentType === "deposit" && (
                   <div className="bg-white rounded p-2 flex justify-between">
                     <span className="text-gray-600 text-sm">
-                      You pay now (10%):
+                      You pay now (25%):
                     </span>
                     <span className="font-bold text-lg text-blue-600">
-                      ₹{depositAmount.toLocaleString("en-IN")}
+                      {formatPrice(Math.round(depositAmount))}
                     </span>
                   </div>
                 )}
@@ -472,7 +481,7 @@ export function BookingCheckout({
                   Processing...
                 </>
               ) : (
-                `Pay ₹${paymentAmount.toLocaleString("en-IN")}`
+                `Pay ${formatPrice(Math.round(paymentAmount))}`
               )}
             </Button>
 

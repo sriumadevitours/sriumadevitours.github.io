@@ -4,18 +4,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Mountain, Star, Users } from "lucide-react";
 import type { Tour } from "@shared/types";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 interface TourCardProps {
   tour: Tour;
 }
 
 export function TourCard({ tour }: TourCardProps) {
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-IN", {
-      style: "currency",
-      currency: "INR",
-      maximumFractionDigits: 0,
-    }).format(price);
+  const { currency, convertInrToUsd, formatPrice: formatCurrencyPrice } = useCurrency();
+
+  const getPrice = (priceInr: number) => {
+    const price = currency === "USD" ? convertInrToUsd(priceInr) : priceInr;
+    return Math.round(price);
   };
 
   return (
@@ -78,11 +78,11 @@ export function TourCard({ tour }: TourCardProps) {
             <p className="text-xs text-muted-foreground">Starting from</p>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-bold text-primary">
-                {formatPrice(tour.pricePerPerson)}
+                {formatCurrencyPrice(getPrice(tour.pricePerPerson))}
               </span>
               {tour.originalPrice && tour.originalPrice > tour.pricePerPerson && (
                 <span className="text-sm text-muted-foreground line-through">
-                  {formatPrice(tour.originalPrice)}
+                  {formatCurrencyPrice(getPrice(tour.originalPrice))}
                 </span>
               )}
             </div>
